@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Portfolio Moritz Richter</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compitble" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/d1b8a18a92.js" crossorigin="anonymous"></script>
+    <style>
+        body,h1 {font-family: "Montserrat", sans-serif}
+    </style>
+</head>
+
+<body>
+
+<!------ CUSTOM CURSOR ----->
+
+<div class="cursor-1"></div>
+
+<!------- HEADER ------>
+
+<header>
+    <nav>
+        <img src="images/logo.jpg" class="logo">
+        <ul id="sidemenu">
+            <li><a href="index.html#">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <i class="fas fa-solid fa-times" onclick="closemenu()"></i>
+        </ul>
+        <i class="fas fa-solid fa-bars" onclick="openmenu()"></i>
+    </nav>
+</header>
+
+<!-------- HOME -------->
+
+<section id="work_home">
+    <div class="container">
+        <div class="home-text">
+            <h1>Works</h1>
+            <p>Please have a further look at my recent <span>Projects</span></p>
+        </div>
+    </div>
+</section>
+
+<!--- FOREST -->
+
+<section id="forest">
+    <div class="container">
+        <!---<img src="images/Moritz.jpg" alt=""> -->
+        <div class="info">
+            <h1 class="sub-title">The Magic Forest</h1>
+            <h2>3D Animation Film</h2>
+            <h3>Area Of Opperation:  3D-Artist, 3D-Modelling, 3D-Rigging, 3D-Animation</h3>
+            <h4>Freya overcomes her grief with the help of a friend and her endlessly imagination.</h4>
+            <p>The Magic Forest is self-written story about Freya a little girl, finding herself lost in the woods. 
+                At the start of the story her sadness and helplessness seems endlessly in an foreverongoing dark and deep forest.
+                Luckily with the help of a strangely familiar firefly she learns the ability to see the light and colourfullness even in the darkest times.</p>
+        </div>
+        <div class="grid_images">
+            <img class="tile1" src="images/Moritz.jpg" alt="">
+            <img class="tile2" src="images/Hands.png" alt="">
+            <img class="tile3" src="images/Moritz.jpg" alt="">
+            <img class="tile4" src="images/Moritz.jpg" alt="">
+            <img class="tile5" src="images/Moritz.jpg" alt="">
+            <img class="tile6" src="images/Moritz.jpg" alt="">
+        </div>
+    </div>
+</section>
+
+<section id="wizard">
+    <div class="container">
+        <div class="info">
+            <h1 class="sub-title">The Wizard's Apprentice</h1>
+            <h2>3D MoCap Animation Film</h2>
+            <h3>Area Of Opperation:  3D-Artist, 3D-Modelling, 3D-Rigging, 3D-Animation</h3>
+            <h4>While conjuring a demon just like his wizarding master did, Faelivrin makes a terrible mistake.</h4>
+            <p>Faelivrin strives to be just as talented as his wizarding master. 
+                While conjuring the spells by his own however something went horribly wrong and 
+                Faelivrin finds himself in an hopeless position captured in a zone of safety for now.</p>
+        </div>
+        <div class="grid_images">
+            <img class="tile1" src="images/Moritz.jpg" alt="">
+            <img class="tile2" src="images/Hands.png" alt="">
+            <img class="tile3" src="images/Moritz.jpg" alt="">
+            <img class="tile4" src="images/Moritz.jpg" alt="">
+            <img class="tile5" src="images/Moritz.jpg" alt="">
+            <img class="tile6" src="images/Moritz.jpg" alt="">
+        </div>
+    </div>
+</section>
+
+<section id="child">
+    <div class="container">
+        <h1 class="sub-title">3D Children's Room</h1>
+        <div class="info">
+            <h2>3D Modelation Of A Children's Room</h2>
+            <h3>Area Of Opperation: 3D-Artist, 3D-Modellingn</h3>
+            <p>A highly detailed photo rendered in Blender in cycles for over an hour.</p>
+        </div>
+        <div class="grid_images">
+            <img class="tile1" src="images/Moritz.jpg" alt="">
+            <img class="tile2" src="images/Hands.png" alt="">
+            <img class="tile3" src="images/Moritz.jpg" alt="">
+            <img class="tile4" src="images/Moritz.jpg" alt="">
+            <img class="tile5" src="images/Moritz.jpg" alt="">
+            <img class="tile6" src="images/Moritz.jpg" alt="">
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section starts -->
+
+<footer> Made by me <span>Moritz</span> with <i class="fa-solid fa-heart"></i> | All rights reserved</footer>
+
+<!-- Footer Section ends -->
+
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    
+    function opentab(tabname){
+        for(link of tablinks){
+            link.classList.remove("active-link");
+        }
+        for(content of tabcontents){
+            content.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+
+</script>
+
+<script>
+    
+    var sidemenu = document.getElementById("sidemenu");
+    function openmenu(){
+        sidemenu.style.top = "0";
+    }
+
+    function closemenu(){
+        sidemenu.style.top = "-100%";
+    }
+
+</script>
+</body>
+</html>
