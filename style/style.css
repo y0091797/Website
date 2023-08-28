@@ -69,10 +69,11 @@ header{
 
 .logo{
     display: flex;
+    padding: 5px 15px;
+    object-fit: cover;
     column-gap: .2rem;
     align-items: center;
-    border-radius: 50%;
-    /*width: 100px;*/
+    width: 75px;
 }
 
 nav{
