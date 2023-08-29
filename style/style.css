@@ -298,12 +298,15 @@ nav ul li a:hover::after{
 }
 
 .work{
+    display: flex;
+    justify-content: center;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
 }
 
 .work img{
+    object-fit: cover;
     width: 100%;
     border-radius: 10px;
     display: block;
@@ -313,7 +316,7 @@ nav ul li a:hover::after{
 .layer{
     width: 100%;
     height: 0;
-    background: linear-gradient(rgba(0,0,0,0.3), var(--embers));
+    background: linear-gradient(rgba(0,0,0,0.3), var(--lightgrey));
     border-radius: 10px;
     position: absolute;
     left: 0;
