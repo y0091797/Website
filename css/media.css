@@ -1,0 +1,83 @@
+/*--------- MOBILE DEVICES -------*/
+
+@media screen and (max-width: 1150px){
+
+    .header-text{
+        margin-top: 100%;
+        font-size: 1px;
+    }
+
+    .header-text h1{
+        font-size: 30px;
+    }
+
+    nav i{
+        top: -50px;
+    }
+
+    nav .fas{
+        display: block;
+        font-size: 25px;
+    }
+
+    nav ul{
+        position: fixed;
+        background-color: hsla(0, 0%, 0%, .75);
+        top: -100%;
+        left: 0;
+        width: 100%;
+        padding-block: 1.8rem 5rem;
+        backdrop-filter: blur(8px);
+        z-index: 2;
+        transition: top .4;
+    }
+
+    nav ul li{
+        display: block;
+        width: max-content;
+        margin: 0 auto 3rem;
+    }
+
+    nav ul li a::after{
+        width: 0;
+        transition: width .4s;
+    }
+
+    nav ul li a:hover::after{
+        width: 100%;
+    }
+
+    nav ul .fas{
+        display: block;
+        width: max-content;
+        top: 25px;
+        left: 25px;
+    }
+
+    .sub-title{
+        font-size: 40px;
+    }
+
+    .about-col-1, .about-col-2{
+        flex-basis: 100%;
+    }
+
+    .about-col-1{
+        margin-bottom: 30px;
+    }
+
+    .about-col-2{
+        font-size: 14px;
+    }
+
+    .tab-links{
+        font-size: 16px;
+        margin-right: 20px;
+    }
+
+    .contact-left, .contact-right{
+        flex-basis: 100%;
+    }
+}
+
+/*--------- TABLET -------*/

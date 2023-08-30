@@ -1,3 +1,4 @@
+/* Script for Portfolio-Section */
 
 var tablinks = document.getElementsByClassName("tab-links");
 var tabcontents = document.getElementsByClassName("tab-contents");
@@ -12,6 +13,8 @@ function opentab(tabname){
     event.currentTarget.classList.add("active-link");
     document.getElementById(tabname).classList.add("active-tab");
 }
+
+/* Script for Sidemenu */
 
 var sidemenu = document.getElementById("sidemenu");
 function openmenu(){

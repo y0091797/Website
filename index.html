@@ -7,13 +7,9 @@
     <meta http-equiv="X-UA-Compitble" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/d1b8a18a92.js" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
-    <style>
-        body,h1 {font-family: "Montserrat", sans-serif}
-    </style>
 </head>
 
 <body>
@@ -33,7 +29,7 @@
             <li><a href="#services" onclick="closemenu()">Services</a></li>
             <li><a href="#portfolio" onclick="closemenu()">Portfolio</a></li>
             <li><a href="#contact" onclick="closemenu()">Contact</a></li>
-            <i class="fas fa-solid fa-times" onclick="closemenu()"></i>
+            <li><i class="fas fa-solid fa-times" onclick="closemenu()"></i></li>
         </ul>
         <i class="fas fa-solid fa-bars" onclick="openmenu()"></i>
     </nav>
@@ -45,7 +41,7 @@
     <div class="container">
         <div class="home-text">
             
-            <h1>Hi it's me <span>Moritz</span></h1>
+            <h1>Hi its me <span>Moritz</span></h1>
             <p>3D-Artist</p>
         </div>
     </div>
@@ -61,7 +57,7 @@
             </div>
             <div class="about-col-2">
                 <h1 class="sub-title"><span>About</span> Me</h1>
-                <p>I am 25 years old, I have a bachelors degree in Information Science and I am currently discovering my creativity and excitement for 3D-Modelling and 3D-Animation during my masters degree in Media- and Gameconcipation.</p>
+                <p>Hey, I am Moritz, I am sweet 25 years old, I have a bachelors degree in Information Science and I am currently discovering my creativity and excitement for 3D-Modelling and 3D-Animation during my masters degree in Media- and Gameconcipation.</p>
                 <div class="tab-titles">
                     <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
                     <p class="tab-links" onclick="opentab('experience')">Experiences</p>
@@ -195,41 +191,14 @@
     </div>
 </section>
 
-<!-- Footer Section starts -->
+<!------- FOOTER ----->
 
 <footer> Made by me <span>Moritz</span> with <i class="fa-solid fa-heart"></i> | All rights reserved</footer>
 
-<!-- Footer Section ends -->
+<!------ SCRIPTS ----->
 
-<script>
-    var tablinks = document.getElementsByClassName("tab-links");
-    var tabcontents = document.getElementsByClassName("tab-contents");
-    
-    function opentab(tabname){
-        for(link of tablinks){
-            link.classList.remove("active-link");
-        }
-        for(content of tabcontents){
-            content.classList.remove("active-tab");
-        }
-        event.currentTarget.classList.add("active-link");
-        document.getElementById(tabname).classList.add("active-tab");
-    }
+<script src="js/script.js"></script>
+<script src="https://kit.fontawesome.com/d1b8a18a92.js" crossorigin="anonymous"></script>
 
-
-</script>
-
-<script>
-    
-    var sidemenu = document.getElementById("sidemenu");
-    function openmenu(){
-        sidemenu.style.top = "0";
-    }
-
-    function closemenu(){
-        sidemenu.style.top = "-100%";
-    }
-
-</script>
 </body>
 </html>

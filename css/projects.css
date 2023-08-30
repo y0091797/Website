@@ -21,7 +21,6 @@ html{
 }
 
 body{
-    font-family: "Montserrat", sans-serif;
     background: var(--black);
     color: var(--white);
 }
@@ -244,6 +243,7 @@ nav ul li a:hover::after{
 
 #services{
     padding: 80px 0;
+
 }
 
 .services-list{

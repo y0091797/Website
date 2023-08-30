@@ -7,12 +7,9 @@
     <meta http-equiv="X-UA-Compitble" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/projects.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/d1b8a18a92.js" crossorigin="anonymous"></script>
-    <style>
-        body,h1 {font-family: "Montserrat", sans-serif}
-    </style>
 </head>
 
 <body>
@@ -43,13 +40,13 @@
 <section id="work_home">
     <div class="container">
         <div class="home-text">
-            <h1>Works</h1>
-            <p>Please have a further look at my recent <span>Projects</span></p>
+            <p>Please have a further look at my recent</p>
+            <h1>Projects</h1>
         </div>
     </div>
 </section>
 
-<!--- FOREST -->
+<!------- FOREST -------->
 
 <section id="forest">
     <div class="container">
@@ -64,15 +61,17 @@
                 Luckily with the help of a strangely familiar firefly she learns the ability to see the light and colourfullness even in the darkest times.</p>
         </div>
         <div class="grid_images">
-            <img class="tile1" src="images/Freya/929a64f8-eb3a-439e-8e4a-be396f6fd288.jpg" alt="">
-            <img class="tile2" src="images/Freya/Download (1).jpg" alt="">
-            <img class="tile3" src="images/Freya/Download (2).jpg" alt="">
-            <img class="tile4" src="images/Freya/Freya3.png" alt="">
-            <img class="tile5" src="images/Freya/Freya1.png" alt="">
-            <img class="tile6" src="images/Freya/Freya2.png" alt="">
+            <img class="tile1" src="../images/Freya/929a64f8-eb3a-439e-8e4a-be396f6fd288.jpg" alt="">
+            <img class="tile2" src="../images/Freya/Download (1).jpg" alt="">
+            <img class="tile3" src="../images/Freya/Download (2).jpg" alt="">
+            <img class="tile4" src="../images/Freya/Freya3.png" alt="">
+            <img class="tile5" src="../images/Freya/Freya1.png" alt="">
+            <img class="tile6" src="../images/Freya/Freya2.png" alt="">
         </div>
     </div>
 </section>
+
+<!------- WIZARD ------->
 
 <section id="wizard">
     <div class="container">
@@ -91,6 +90,8 @@
         </div>
     </div>
 </section>
+
+<!-------- ROOM -------->
 
 <section id="child">
     <div class="container">
@@ -111,37 +112,10 @@
 
 <footer> Made by me <span>Moritz</span> with <i class="fa-solid fa-heart"></i> | All rights reserved</footer>
 
-<!-- Footer Section ends -->
+<!------ SCRIPTS ------>
 
-<script>
-    var tablinks = document.getElementsByClassName("tab-links");
-    var tabcontents = document.getElementsByClassName("tab-contents");
-    
-    function opentab(tabname){
-        for(link of tablinks){
-            link.classList.remove("active-link");
-        }
-        for(content of tabcontents){
-            content.classList.remove("active-tab");
-        }
-        event.currentTarget.classList.add("active-link");
-        document.getElementById(tabname).classList.add("active-tab");
-    }
+<script src="../js/script.js"></script>
+<script src="https://kit.fontawesome.com/d1b8a18a92.js" crossorigin="anonymous"></script>
 
-
-</script>
-
-<script>
-    
-    var sidemenu = document.getElementById("sidemenu");
-    function openmenu(){
-        sidemenu.style.top = "0";
-    }
-
-    function closemenu(){
-        sidemenu.style.top = "-100%";
-    }
-
-</script>
 </body>
 </html>
