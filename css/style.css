@@ -62,9 +62,6 @@ header{
     left: 0;
     z-index: 10000;
     transition: box-shadow .5s;
-    /*height: 60rem;
-    background-color: var(--ink);
-    background-position: center;*/
 }
 
 .logo{
@@ -128,7 +125,7 @@ nav ul li a:hover::after{
 /*------- HOME ------*/
 
 #home{
-    padding: 0 0;
+    padding: 0 20px;
     min-height: 100vh;
     background-image: url(../images/Moritz.jpg);
     background-size: contain;
@@ -145,6 +142,11 @@ nav ul li a:hover::after{
     position: relative;
     margin-top: 20%;
     font-size: 30px;
+}
+.home-text p{
+    text-transform: uppercase;
+    padding-left: 50px;
+    border: #B82601;
 }
 
 .home-text h1{
@@ -547,10 +549,9 @@ nav .fas{
     display: none;
 }
 
-@media (max-width: 600px){
-    #header{
-        background-image: url(../images/Hands.png);
-    }
+/*--------- MOBILE DEVICES -------*/
+
+@media screen and (max-width: 1150px){
 
     .header-text{
         margin-top: 100%;
@@ -571,28 +572,36 @@ nav .fas{
     }
 
     nav ul{
-        background-color: hsla(0, 0%, 0%, .75);
         position: fixed;
+        background-color: hsla(0, 0%, 0%, .75);
         top: -100%;
         left: 0;
         width: 100%;
-        /*height: 100vh;*/
         padding-block: 1.8rem 5rem;
         backdrop-filter: blur(8px);
         z-index: 2;
         transition: top .4;
-    };
+    }
 
     nav ul li{
         display: block;
-        margin: 25px;
-    };
+        width: max-content;
+        margin: 0 auto 3rem;
+    }
+
+    nav ul li a::after{
+        width: 0;
+        transition: width .4s;
+    }
+
+    nav ul li a:hover::after{
+        width: 100%;
+    }
 
     nav ul .fas{
-        position: absolute;
+        display: block;
         top: 25px;
         left: 25px;
-        cursor: pointer;
     }
 
     .sub-title{
