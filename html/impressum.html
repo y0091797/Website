@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Impressum</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compitble" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/d1b8a18a92.js" crossorigin="anonymous"></script>
+    <style>
+        body,h1 {font-family: "Montserrat", sans-serif}
+    </style>
+</head>
+
+<body>
+
+<!------ CUSTOM CURSOR ----->
+
+<div class="cursor-1"></div>
+
+<!------- HEADER ------>
+
+<header>
+    <nav>
+        <img src="images/Logo.png" class="logo">
+        <ul id="sidemenu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <i class="fas fa-solid fa-times" onclick="closemenu()"></i>
+        </ul>
+        <i class="fas fa-solid fa-bars" onclick="openmenu()"></i>
+    </nav>
+</header>
+
+<!-------- HOME -------->
+
+<section id="home">
+    <div class="container">
+        <div class="home-text">
+            <p>3D-Artist</p>
+            <h1>Hi, I am <span>Moritz</span></h1>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section starts -->
+
+<footer> Made by me <span>Moritz</span> with <i class="fa-solid fa-heart"></i> | All rights reserved</footer>
+
+<!-- Footer Section ends -->
+
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    
+    function opentab(tabname){
+        for(link of tablinks){
+            link.classList.remove("active-link");
+        }
+        for(content of tabcontents){
+            content.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+
+</script>
+
+<script>
+    
+    var sidemenu = document.getElementById("sidemenu");
+    function openmenu(){
+        sidemenu.style.top = "0";
+    }
+
+    function closemenu(){
+        sidemenu.style.top = "-100%";
+    }
+
+</script>
+</body>
+</html>
