@@ -27,11 +27,11 @@
     <nav>
         <img src="images/Logo.png" class="logo">
         <ul id="sidemenu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#" onclick="closemenu()">Home</a></li>
+            <li><a href="#about" onclick="closemenu()">About</a></li>
+            <li><a href="#services" onclick="closemenu()">Services</a></li>
+            <li><a href="#portfolio" onclick="closemenu()">Portfolio</a></li>
+            <li><a href="#contact" onclick="closemenu()">Contact</a></li>
             <i class="fas fa-solid fa-times" onclick="closemenu()"></i>
         </ul>
         <i class="fas fa-solid fa-bars" onclick="openmenu()"></i>
@@ -43,36 +43,12 @@
 <section id="home">
     <div class="container">
         <div class="home-text">
+            
+            <h1>Hi it's me <span>Moritz</span></h1>
             <p>3D-Artist</p>
-            <h1>Hi, I am <span>Moritz</span></h1>
         </div>
     </div>
 </section>
-
-<!------ HEADER OLD ------>
-
-<!---
-<div id="header">
-    <div class="container">
-        <nav>
-            <img src="images/logo.png" class="logo">
-            <ul id="sidemenu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <i class="fas fa-solid fa-times" onclick="closemenu()"></i>
-            </ul>
-            <i class="fas fa-solid fa-bars" onclick="openmenu()"></i>
-        </nav>
-        <div class="header_text">
-            <p>3D-Artist</p>
-            <h1>Hi, I am <span>Moritz</span> from Germany</h1>
-        </div>
-    </div>
-</div>
--->
 
 <!--- ABOUT -->
 
@@ -84,7 +60,7 @@
             </div>
             <div class="about-col-2">
                 <h1 class="sub-title"><span>About</span> Me</h1>
-                <p>Hey, I am Moritz, I am sweet 25 years old, I have a bachelors degree in Information Science and I am currently discovering my creativity and excitement for 3D-Modelling and 3D-Animation during my masters degree in Media- and Gameconcipation.</p>
+                <p>I am 25 years old, I have a bachelors degree in Information Science and I am currently discovering my creativity and excitement for 3D-Modelling and 3D-Animation during my masters degree in Media- and Gameconcipation.</p>
                 <div class="tab-titles">
                     <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
                     <p class="tab-links" onclick="opentab('experience')">Experiences</p>
