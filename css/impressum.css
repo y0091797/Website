@@ -1,38 +1,10 @@
 :root{
     --black: #000;
     --ink: #062F4F;
-    --posy: #813772;
     --embers: #B82601;
     --lightembers: #FFCCCB;
     --white: #FFF;
     --lightgrey: #5A5A5A;
-
-}
-
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 0;
-    box-sizing: border-box;
-}
-
-html{
-    scroll-behavior: smooth;
-}
-
-body{
-    background: var(--black);
-    color: var(--white);
-}
-
-span{
-    color: var(--embers);
-}
-
-.sub-title{
-    font-size: 60px;
-    font-weight: 600;
-    color: var(--white);
 }
 
 /*---------- IMPRESSUM -----------*/
