@@ -39,6 +39,10 @@ span{
     padding: 10px ;
 }
 
+.wrapper{
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
 /*-------- CURSOR --------*/
 
@@ -136,9 +140,9 @@ nav ul li a:hover::after{
 #home{
     padding: 0 20px;
     min-height: 100vh;
-    background-image: url(../images/Moritz.jpg);
+    background-image: url(../video/Characters.gif);
     background-size: contain;
-    background-position: right;
+    background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -168,7 +172,7 @@ nav ul li a:hover::after{
 
 #about{
     padding: 80px 0;
-    color: var(--white);
+    min-height: 100vh;
 }
 
 .row{
@@ -199,9 +203,10 @@ nav ul li a:hover::after{
     margin: 20px 0 40px;
 }
 
+
 .tab-links{
     margin-right: 50px;
-    font-size: 10px;
+    font-size: 20px;
     font-weight: 500;
     cursor: pointer;
     position: relative;
@@ -244,6 +249,7 @@ nav ul li a:hover::after{
 
 #services{
     padding: 80px 0;
+    min-height: 100vh;
 }
 
 .services-list{
@@ -294,11 +300,13 @@ nav ul li a:hover::after{
 
 #portfolio {
     padding: 80px 0;
+    min-height: 100vh;
 }
 
 .work-list{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: auto;
     grid-gap: 40px;
     margin-top: 50px;
 }
@@ -385,6 +393,12 @@ nav ul li a:hover::after{
 
 #contact{
     padding: 80px 0;
+    min-height: 100vh;
+}
+
+.row{
+    display: flex;
+
 }
 
 .contact-left{
@@ -392,7 +406,7 @@ nav ul li a:hover::after{
 }
 
 .contact-right{
-    flex-basis: 60%;
+    flex-basis: 65%;
 }
 
 .contact-left p{
@@ -445,26 +459,37 @@ form input, form textarea{
     margin: 15px 0;
     color: var(--white);
     font-size: 18px;
+    font-family: "Montserrat", sans-serif;
     border-radius: 6px;
+    resize: none;
 }
 
-form .btn{
+.contact-right .btn{
     padding: 14px 60px;
     font-size: 18px;
-    margin-top: 20px;
     cursor: pointer;
 }
+
+.map{
+    width: 100%;
+}
+
 
 /*--------- FOOTER -----------*/
 
 footer{
     width: 100%;
-    padding: 25px 0;
+    height: auto;
+    padding: 20px 0;
     font-weight: 300;
-    margin-top: 20px;
     text-align: center;
     color: var(--white);
     background: var(--lightgrey);
+}
+
+footer p{
+    padding-bottom: 10px;
+    margin: 0 10px;
 }
 
 footer i{
@@ -474,4 +499,8 @@ footer i{
 footer span{
     color: var(--embers);
     font-weight: bold;
+}
+
+footer a{
+    color: var(--white);
 }

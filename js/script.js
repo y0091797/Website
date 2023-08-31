@@ -24,3 +24,8 @@ function openmenu(){
 function closemenu(){
     sidemenu.style.top = "-100%";
 }
+
+/* Script for Video to start at specific time */
+document.getElementById('vid').addEventListener('loadedmetadata', function() {
+    this.currentTime = 1;
+  }, false);
