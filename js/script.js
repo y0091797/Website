@@ -1,4 +1,4 @@
-/* Script for Portfolio-Section */
+/* Script for Portfolio-Section - switch between active tab*/
 
 var tablinks = document.getElementsByClassName("tab-links");
 var tabcontents = document.getElementsByClassName("tab-contents");
@@ -14,7 +14,7 @@ function opentab(tabname){
     document.getElementById(tabname).classList.add("active-tab");
 }
 
-/* Script for Sidemenu */
+/* Script for Navigation Bar Re*/
 
 var sidemenu = document.getElementById("sidemenu");
 function openmenu(){

@@ -50,13 +50,7 @@
 
 /*------------ INFORMATION ------------*/
 
-#forest{
-    padding: 80px 0;
-}
 
-.info{
-    padding: 20px;
-}
 
 .info h2 {
     color: var(--embers);
@@ -82,7 +76,7 @@
 /* ------- GRID IMAGE GALLERY ------- */
 
 .grid{
-    padding: 20px;
+    padding-top: 20px;
     display: grid;
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
@@ -103,7 +97,6 @@
 
 .grid img {
     max-width: 100%;
-
 }
 
 .grid > div > img{

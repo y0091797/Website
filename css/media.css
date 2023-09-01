@@ -1,6 +1,16 @@
-/*--------- MOBILE DEVICES -------*/
+/*--------- TABELT DEVICES -------*/
 
-@media screen and (max-width: 1150px){
+@media screen and (max-width: 1280px){
+
+    .container{
+        padding: 50px;
+    }
+
+    .sub-title{
+        font-size: 40px;
+    }
+
+    /*-------- NAVIGATION --------*/
 
     .header-text{
         margin-top: 100%;
@@ -20,6 +30,7 @@
         font-size: 25px;
     }
 
+    /* NAVIGATION BAR (interactes with JS) */
     nav ul{
         position: fixed;
         background-color: hsla(0, 0%, 0%, .75);
@@ -54,9 +65,7 @@
         left: 25px;
     }
 
-    .sub-title{
-        font-size: 40px;
-    }
+    /*------- ABOUT -------*/
 
     .about-col-1, .about-col-2{
         flex-basis: 100%;
@@ -75,9 +84,95 @@
         margin-right: 20px;
     }
 
-    .contact-left, .contact-right{
-        flex-basis: 100%;
+    /*-------- SERVICES ---------*/
+
+    .services-list{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
+
+    /*-------- PORTFOLIO -------*/
+    
+    .work-list{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
 }
 
-/*--------- TABLET -------*/
+/*--------- MOBILE DEVICES -------*/
+
+@media screen and (max-width: 850px){
+
+    .container{
+        padding: 40px;
+    }
+
+    /*----------- HOME -----------*/
+
+    .home-text{
+        margin-top: 40%;
+    }
+    
+    .home-text p{
+        padding-top: 20px;
+    }
+
+    .home-text h1{
+        font-size: 50px;
+    }
+
+    /*-------- SERVICES ---------*/
+
+    .services-list{
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+
+    /*-------- PORTFOLIO -------*/
+
+    .work-list{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+
+    /*--------- CONTACT ---------*/
+
+    .contact-left{
+        flex-basis: 100%;
+        order: 1;
+    }
+
+    .contact-right{
+        flex-basis: 100%;
+        order: 2;
+    }
+
+    /*------- PROJECTS --------*/
+
+    #projects{
+        padding-left: 10px;
+    }
+
+    .projects-text p{
+        margin-top: 60%;
+        font-size: 20px;
+    }
+
+    /*----- IMPRESSUM --------*/
+    
+    .impressum_text{
+        font-size: 15px;
+    }
+    
+    .impressum_text h1{
+        font-size: 50px;
+    }
+    
+    .impressum_text h2{
+        font-size: 25px;
+    }
+    
+    .impressum_text h3{
+        font-size: 20px;
+    }
+
+}

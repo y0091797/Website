@@ -5,7 +5,6 @@
     --lightembers: #FFCCCB;
     --white: #FFF;
     --lightgrey: #5A5A5A;
-
 }
 
 *{
@@ -36,7 +35,7 @@ span{
 }
 
 .container{
-    padding: 10px ;
+    padding: 20px;
 }
 
 .wrapper{
@@ -150,12 +149,13 @@ nav ul li a:hover::after{
 .home-text{
     position: relative;
     margin-top: 20%;
-    font-size: 30px;
+
 }
+
 .home-text p{
     text-transform: uppercase;
     padding-left: 50px;
-    border: #B82601;
+    font-size: 30px;
 }
 
 .home-text h1{
@@ -165,7 +165,6 @@ nav ul li a:hover::after{
 
 .home-text h1 span{
     color: var(--embers);
-
 }
 
 /*--------- ABOUT --------*/
@@ -446,9 +445,6 @@ nav ul li a:hover::after{
     width: 100%;
 }
 
-.contact-left iframe{
-    width: 100%;
-}
 
 form input, form textarea{
     width: 100%;
