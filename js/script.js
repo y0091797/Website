@@ -25,7 +25,35 @@ function closemenu(){
     sidemenu.style.top = "-100%";
 }
 
+/* Script for Text About Me*/
+
+var atext = document.getElementById("abouttext");
+var abtn = document.getElementById("aboutbtn");
+
+/*abtn.addEventListener("click", function(){
+    atext.style.display = "block";
+});*/
+
+abtn.onclick = (function() {
+    var table = atext;
+    return function() {
+        buttonToggle(this, table, 'View', 'Hide');
+    };
+}());
+
+function buttonToggle(where,pval,nval) {
+    var display =  where.value === nval ? 'none' : 'block';
+    atext.style.display = display;
+    atext.style.top = 0;
+    where.value = (where.value == pval) ? nval : pval;
+}
+
 /* Script for Video to start at specific time */
-document.getElementById('vid').addEventListener('loadedmetadata', function() {
+
+var video = document.getElementById('vid');
+
+video.addEventListener('loadedmetadata', function() {
     this.currentTime = 1;
-  }, false);
+}, false);
+
+

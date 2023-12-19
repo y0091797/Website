@@ -28,6 +28,10 @@ span{
     color: var(--embers);
 }
 
+p{
+    line-height: 30px;
+}
+
 .sub-title{
     font-size: 60px;
     font-weight: 600;
@@ -244,6 +248,30 @@ nav ul li a:hover::after{
     display: block;
 }
 
+.about-col-3{
+    flex-basis: 100%;
+    margin: auto 300px;
+}
+
+.about-col-3 button{
+    background-color: var(--black);
+    font-size: 15px;
+}
+
+.about-col-3 .abouttext{
+    display: none;
+    position: relative;
+    top: -100%;
+    transition: top 0.5s;
+    background-color: var(--lightgrey);
+    border-radius: 10px;
+}
+
+.about-col-3 .abouttext div{
+    padding: 40px;
+    text-align: justify;
+}
+
 /*--------- SERVICES --------*/
 
 #services{
@@ -288,7 +316,7 @@ nav ul li a:hover::after{
 
 .services-list div:hover{
     background-color: var(--embers);
-    transform: translateY(-10px);
+    transform: translateY(20px);
 }
 
 .services-list div a:hover{
