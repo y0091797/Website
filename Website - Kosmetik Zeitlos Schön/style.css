@@ -1,0 +1,211 @@
+/*-------------- ROOT ------------------*/
+:root{
+    --black: #000;
+    --creme: #FFF5E1;
+    --peach: #eebb8e;
+    --rose: #FEDCD2;
+    --lightrose: #fbcbd0;
+    --white: #f3f3f3;
+    --lightgrey: #dcdcdc;
+}
+
+html {
+    /* Verbergen der Standardscrollleiste */
+    scrollbar-width: none; /* Für Firefox */
+    -ms-overflow-style: none; /* Für Internet Explorer und Edge */
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace, sans-serif;
+    padding: 50px 20%;
+    background-color: var(--lightgrey);
+    color: black;
+
+} 
+
+h1{
+    color: var(--peach);
+    font-size: 32px;
+    text-transform: uppercase;
+}
+
+h2{
+    color: var(--lightgrey);
+    font-size: 32px;
+    text-transform: lowercase;
+}
+
+/*------------- HEADER --------------*/
+
+header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25); /* Schatten unter dem Header */
+}
+
+.company-name {
+    text-align: center;
+    padding-top: 20px; /* Platz oberhalb des Headers */
+}
+
+.company-name h1 {
+    margin: 0;
+    font-size: 50px; /* Größe des Firmennamens anpassen */
+    color: var(--peach);
+}
+.company-name h2 {
+    margin: 0;
+    font-size: 24px; /* Größe des Firmennamens anpassen */
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Zentriert die Elemente vertikal */
+    list-style: none;
+    padding: 5px 35%;
+}
+
+.navigation ul li {
+    margin: 50px 5px; /* Fügt Abstand zwischen den Elementen hinzu */
+}
+
+.navigation a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Unterstrich für alle Links */
+.navigation a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s;
+}
+
+/* Stärkerer Unterstrich für die aktive Seite */
+.navigation a.active::after,
+.navigation a:hover::after {
+    width: 100%; /* Ändere hier die Stärke des Unterstrichs */
+}
+
+/* ----------------- HOME -----------------*/
+.home {
+    padding: 15% 0;
+}
+
+.containerlr {
+    display: flex;
+    align-items: center; /* Zentriert die Elemente vertikal */
+    padding: 50px 0;
+}
+
+.containerlr p {
+    text-align: left; /* Links ausgerichteter Text */
+}
+
+.containercenter {
+    align-items: center;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.containercenter img{
+    padding-top: 30px;
+}
+
+.image-container {
+    position: relative; 
+    display: inline-block;
+}
+
+.image-container img{
+    display: block; 
+    max-width: 100%; 
+    height: 90%;
+    border-radius: 10px; /* Runde Ecken mit einem Radius von 10px */
+    overflow: hidden;
+}
+
+/* Stil für das farbige Rechteck hinter dem Bild */
+.image-container::before {
+    content: ""; 
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    border-radius: 10px;
+    transform: rotate(-10deg); /* Negative Gradzahl für eine leichte Drehung nach links */
+    z-index: -1;
+}
+
+.left {
+    flex: 1; /* Verhindert, dass sich das Bild anpasst */
+    margin-right: 10%; /* Abstand zwischen den DIVs */
+}
+
+.right {
+    flex: 1; /* Nimmt den verfügbaren Platz ein */
+}
+
+/*--------- CONTACT -----------*/
+.contact{
+    padding: 15% 0;
+}
+
+.contact span{
+    text-transform: uppercase;
+}
+
+.contact iframe {
+    border-radius: 10px;
+    width: 100%;
+}
+
+/*--------- FOOTER -----------*/
+
+footer{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    font-weight: 300;
+    text-align: center;
+    background: var(--white);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25); /* Schatten unter dem Header */
+}
+
+footer li{
+    list-style: none;
+}
+
+footer p{
+    padding-bottom: 10px;
+    margin: 0 10px;
+}
+
+footer a{
+    color: var(--white);
+}
+
+.foot {
+    display: flex;
+    height: auto;
+    align-items: center; /* Zentriert die Elemente vertikal */
+    padding: 50px 0;
+}
+
+.foot div{
+    flex: 1;
+
+}
+
+.foot div img {
+    height: 150px;
+}
