@@ -2,8 +2,7 @@
 :root{
     --black: #000;
     --creme: #FFF5E1;
-    --peach: #eebb8e;
-    --rose: #FEDCD2;
+    --peach: #f7aa65;
     --lightrose: #fbcbd0;
     --white: #f3f3f3;
     --lightgrey: #dcdcdc;
@@ -16,23 +15,22 @@ html {
 }
 
 body {
-    font-family: 'Courier New', Courier, monospace, sans-serif;
+    font-family: 'Monotype Corsiva', cursive;
     padding: 50px 20%;
     background-color: var(--lightgrey);
     color: black;
-
 } 
 
 h1{
     color: var(--peach);
     font-size: 32px;
-    text-transform: uppercase;
+
+    font-variant: small-caps;
 }
 
 h2{
-    color: var(--lightgrey);
-    font-size: 32px;
-    text-transform: lowercase;
+    color: var(--black);
+    font-size: 26px;
 }
 
 /*------------- HEADER --------------*/
@@ -59,6 +57,7 @@ header {
 .company-name h2 {
     margin: 0;
     font-size: 24px; /* Größe des Firmennamens anpassen */
+    color: var(--black);
 }
 
 .navigation {
@@ -70,11 +69,12 @@ header {
 }
 
 .navigation ul li {
-    margin: 50px 5px; /* Fügt Abstand zwischen den Elementen hinzu */
+    margin: 0 5px; /* Fügt Abstand zwischen den Elementen hinzu */
 }
 
 .navigation a {
     text-decoration: none;
+    font-size: 22px;
     color: black;
 }
 
@@ -96,13 +96,16 @@ header {
 
 /* ----------------- HOME -----------------*/
 .home {
-    padding: 15% 0;
+    padding: 20% 0;
+}
+
+.space {
+    padding: 50px;
 }
 
 .containerlr {
     display: flex;
-    align-items: center; /* Zentriert die Elemente vertikal */
-    padding: 50px 0;
+    padding: 10px 0;
 }
 
 .containerlr p {
@@ -110,13 +113,9 @@ header {
 }
 
 .containercenter {
-    align-items: center;
-    text-align: center;
-    padding: 10px 0;
-}
-
-.containercenter img{
-    padding-top: 30px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
 }
 
 .image-container {
@@ -140,7 +139,7 @@ header {
     height: 100%;
     background-color: var(--white);
     border-radius: 10px;
-    transform: rotate(-10deg); /* Negative Gradzahl für eine leichte Drehung nach links */
+    transform: rotate(-7deg); /* Negative Gradzahl für eine leichte Drehung nach links */
     z-index: -1;
 }
 
@@ -151,11 +150,17 @@ header {
 
 .right {
     flex: 1; /* Nimmt den verfügbaren Platz ein */
+    justify-content: space-between;
 }
+
+.top {
+    text-align: center;
+}
+
 
 /*--------- CONTACT -----------*/
 .contact{
-    padding: 15% 0;
+    padding: 20% 0;
 }
 
 .contact span{
@@ -165,6 +170,37 @@ header {
 .contact iframe {
     border-radius: 10px;
     width: 100%;
+}
+
+
+/*--------- BEHANDLUNGEN -----------*/
+
+.behandlungen {
+    padding: 20% 0;
+}
+
+.behandlungen .containercenter {
+    padding: 20px 0;
+}
+
+.prices {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: right;
+    text-align: right;
+    position: relative; /* Position des übergeordneten Elements festlegen */
+}
+
+.prices::before {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Negative Position nach unten */
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.75);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.25); /* Hier wird der Schatten erzeugt */
 }
 
 /*--------- FOOTER -----------*/
