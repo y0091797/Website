@@ -31,6 +31,12 @@
     .home {
         padding: 23% 0;
     }
+
+    .foot div img {
+        height: 200px;
+        transform: rotate(25deg);
+        padding: 0;
+    }
 }
 
 /*--------- MOBILE DEVICES -------*/
@@ -69,12 +75,24 @@
         width: 100%;
         transition: left 0.3s ease;
     }
+
     .nav-links a {
         text-decoration: none;
         color: #333;
         margin: 10px 0;
     }
+
+    .bar {
+        display: flex;
+    }
+
     .nav-links.active {
         left: 0; /* Zeigt die Navigation, wenn aktiviert */
+    }
+
+    .foot div img {
+        height: 200px;
+        transform: rotate(25deg);
+        padding: 0;
     }
 }
