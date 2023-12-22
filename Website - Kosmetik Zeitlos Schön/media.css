@@ -12,12 +12,69 @@
 
 @media screen and (max-width: 1280px){
 
+    body {
+        padding: 50px 10%;
+    } 
 
+    .navigation {
+        padding: 5px 25%;
+    }
+
+    h1{
+        font-size: 26px;
+    }
+    
+    h2{
+        font-size: 22px;
+    }
+
+    .home {
+        padding: 23% 0;
+    }
 }
 
 /*--------- MOBILE DEVICES -------*/
 
 @media screen and (max-width: 850px){
 
- 
+    body {
+        padding: 50px 5%;
+    } 
+
+    .navigation {
+        padding: 5px 15%;
+    }
+
+    h1{
+        font-size: 26px;
+    }
+    
+    h2{
+        font-size: 22px;
+    }
+
+    .home {
+        padding: 25% 0;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f9f9f9;
+        padding: 20px;
+        position: absolute;
+        top: 60px; /* Abstand vom oberen Rand */
+        left: -100%; /* Versteckt die Navigation außerhalb des Bildschirms */
+        width: 100%;
+        transition: left 0.3s ease;
+    }
+    .nav-links a {
+        text-decoration: none;
+        color: #333;
+        margin: 10px 0;
+    }
+    .nav-links.active {
+        left: 0; /* Zeigt die Navigation, wenn aktiviert */
+    }
 }
