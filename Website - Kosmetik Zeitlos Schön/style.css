@@ -159,7 +159,7 @@ header {
 .image-container img{
     display: block; 
     max-width: 100%;
-    max-height: 700px;
+    max-height: 600px;
     object-fit: cover;
     height: 100%;
     border-radius: 10px; /* Runde Ecken mit einem Radius von 10px */
