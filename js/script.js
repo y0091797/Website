@@ -1,59 +1,103 @@
-/* Script for Portfolio-Section - switch between active tab*/
+/* =====================================================
+   Moritz Richter — Portfolio · interactions
+   ===================================================== */
 
-var tablinks = document.getElementsByClassName("tab-links");
-var tabcontents = document.getElementsByClassName("tab-contents");
-
+/* ---- About / tabs ---- */
 function opentab(tabname){
-    for(link of tablinks){
-        link.classList.remove("active-link");
+    document.querySelectorAll(".tab-links").forEach(l => l.classList.remove("active-link"));
+    document.querySelectorAll(".tab-contents").forEach(c => c.classList.remove("active-tab"));
+    if (window.event && window.event.currentTarget) {
+        window.event.currentTarget.classList.add("active-link");
     }
-    for(content of tabcontents){
-        content.classList.remove("active-tab");
-    }
-    event.currentTarget.classList.add("active-link");
-    document.getElementById(tabname).classList.add("active-tab");
+    const el = document.getElementById(tabname);
+    if (el) el.classList.add("active-tab");
 }
 
-/* Script for Navigation Bar Re*/
-
-var sidemenu = document.getElementById("sidemenu");
+/* ---- Mobile navigation ---- */
 function openmenu(){
-    sidemenu.style.top = "0";
+    const m = document.getElementById("sidemenu");
+    if (m) m.classList.add("open");
 }
-
 function closemenu(){
-    sidemenu.style.top = "-100%";
+    const m = document.getElementById("sidemenu");
+    if (m) m.classList.remove("open");
 }
 
-/* Script for Text About Me*/
+/* ---- "Read my full story" toggle ---- */
+(function(){
+    const btn = document.getElementById("aboutbtn");
+    const text = document.getElementById("abouttext");
+    if (!btn || !text) return;
+    btn.addEventListener("click", () => {
+        const open = text.style.display === "block";
+        text.style.display = open ? "none" : "block";
+        btn.innerHTML = open
+            ? '<i class="fa-solid fa-circle-info"></i> Read my full story'
+            : '<i class="fa-solid fa-xmark"></i> Hide';
+    });
+})();
 
-var atext = document.getElementById("abouttext");
-var abtn = document.getElementById("aboutbtn");
+/* ---- Sticky navbar shadow on scroll ---- */
+(function(){
+    const header = document.getElementById("header");
+    if (!header) return;
+    const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+})();
 
-/*abtn.addEventListener("click", function(){
-    atext.style.display = "block";
-});*/
+/* ---- Scroll reveal ---- */
+(function(){
+    const items = document.querySelectorAll(".reveal");
+    if (!items.length) return;
+    if (!("IntersectionObserver" in window)) {
+        items.forEach(i => i.classList.add("in"));
+        return;
+    }
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+            if (e.isIntersecting) {
+                e.target.classList.add("in");
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+    items.forEach((i, idx) => {
+        i.style.transitionDelay = `${Math.min(idx % 4, 3) * 80}ms`;
+        io.observe(i);
+    });
+})();
 
-abtn.onclick = (function() {
-    var table = atext;
-    return function() {
-        buttonToggle(this, table, 'View', 'Hide');
-    };
-}());
+/* ---- Custom cursor ---- */
+(function(){
+    const dot = document.querySelector(".cursor-dot");
+    const ring = document.querySelector(".cursor-ring");
+    if (!dot || !ring || window.matchMedia("(hover: none)").matches) return;
 
-function buttonToggle(where,pval,nval) {
-    var display =  where.value === nval ? 'none' : 'block';
-    atext.style.display = display;
-    atext.style.top = 0;
-    where.value = (where.value == pval) ? nval : pval;
-}
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener("mousemove", (e) => {
+        mx = e.clientX; my = e.clientY;
+        dot.style.left = mx + "px";
+        dot.style.top = my + "px";
+    });
+    (function loop(){
+        rx += (mx - rx) * 0.18;
+        ry += (my - ry) * 0.18;
+        ring.style.left = rx + "px";
+        ring.style.top = ry + "px";
+        requestAnimationFrame(loop);
+    })();
 
-/* Script for Video to start at specific time */
+    const interactive = "a, button, .tab-links, .work, .service-card, input, textarea, .menu-open";
+    document.querySelectorAll(interactive).forEach((el) => {
+        el.addEventListener("mouseenter", () => ring.classList.add("is-active"));
+        el.addEventListener("mouseleave", () => ring.classList.remove("is-active"));
+    });
+})();
 
-var video = document.getElementById('vid');
-
-video.addEventListener('loadedmetadata', function() {
-    this.currentTime = 1;
-}, false);
-
-
+/* ---- Project video: start a touch in ---- */
+(function(){
+    const video = document.getElementById("vid");
+    if (!video) return;
+    video.addEventListener("loadedmetadata", function(){ this.currentTime = 1; }, false);
+})();
