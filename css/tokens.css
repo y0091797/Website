@@ -1,0 +1,58 @@
+/* =============================================================
+   MoRi — Design tokens
+   Cinematic dark-blue base, warm cream-yellow accent.
+   ============================================================= */
+
+:root {
+    /* --- Surfaces (dark blue, never pure black) --- */
+    --ink-900: #0a1622;
+    --ink-850: #0c1c2c;
+    --ink-800: #0f2236;
+    --ink-700: #16314a;
+    --ink-600: #1d3c59;
+    --line: rgba(242, 230, 200, 0.12);
+    --line-strong: rgba(242, 230, 200, 0.22);
+
+    /* --- Type colors --- */
+    --cream: #f2e6c8;
+    --accent: #eccf8a;
+    --accent-deep: #d8b46a;
+    --muted: #9db0c2;
+    --muted-dim: #6f8296;
+
+    /* --- Per-project accents --- */
+    --c-mala: #d9a93a;
+    --c-poster: #3fe3e3;
+    --c-freya: #e5613b;
+    --c-motion: #eccf8a;
+    --c-additional: #f2e6c8;
+
+    /* page-level accent (overridden per project page) */
+    --accent-now: var(--accent);
+
+    /* --- Type --- */
+    --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+    --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    /* fluid display sizes */
+    --fs-hero: clamp(4.5rem, 18vw, 18rem);
+    --fs-h1: clamp(2.6rem, 6vw, 5rem);
+    --fs-h2: clamp(2rem, 4.2vw, 3.4rem);
+    --fs-h3: clamp(1.3rem, 2.4vw, 1.9rem);
+    --fs-lead: clamp(1.05rem, 1.6vw, 1.4rem);
+    --fs-body: 1.0625rem;
+    --fs-label: 0.78rem;
+
+    /* --- Spacing / layout --- */
+    --container: 1280px;
+    --gutter: clamp(1.25rem, 5vw, 4rem);
+    --section-y: clamp(5rem, 12vw, 11rem);
+    --radius: 14px;
+    --radius-lg: 22px;
+
+    /* --- Motion --- */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+
+    --shadow-soft: 0 30px 80px -40px rgba(0, 0, 0, 0.85);
+}

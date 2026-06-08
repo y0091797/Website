@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Motion Studies — Motion Design · MoRi</title>
+    <meta name="description"
+        content="Motion design and character animation studies by Moritz Richter — rigging, weight and timing turning 3D models into performances." />
+    <link rel="icon" href="../images/Logo.png" />
+    <script>document.documentElement.classList.remove('no-js');</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../css/tokens.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/project.css" />
+</head>
+
+<body style="--accent-now: var(--c-motion);">
+    <div class="atmosphere" aria-hidden="true"></div>
+
+    <header class="site-header is-solid" id="header">
+        <div class="container nav">
+            <a class="nav-brand" href="../index.html#top" aria-label="MoRi — home">Mo<span class="accent">Ri</span></a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="../index.html#work">Work</a></li>
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li><a href="../images/CV_Moritz_Richter.pdf" download>Résumé</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="top">
+        <section class="container proj-hero">
+            <a class="proj-back" href="../index.html#work"><span class="arrow">←</span> All work</a>
+            <p class="proj-kicker" data-reveal><span class="dot"></span>Motion Design · Animation</p>
+            <h1 class="proj-title" data-reveal>Motion <span class="accenttint">Studies</span></h1>
+            <p class="proj-overview" data-reveal>
+                Where modelling ends and performance begins. These are character animation studies — the
+                rigging, weight and timing that turn a static 3D model into something that feels alive.
+            </p>
+
+            <dl class="proj-meta" data-reveal>
+                <div>
+                    <dt>Role</dt>
+                    <dd>Rigging · Animation</dd>
+                </div>
+                <div>
+                    <dt>Tools</dt>
+                    <dd>Blender</dd>
+                </div>
+                <div>
+                    <dt>Focus</dt>
+                    <dd>Weight · Timing · Appeal</dd>
+                </div>
+                <div>
+                    <dt>Format</dt>
+                    <dd>Loop &amp; turntable studies</dd>
+                </div>
+            </dl>
+
+            <div class="proj-stage proj-stage--contain" data-reveal style="background:var(--ink-800);">
+                <video src="../video/characters.mp4" muted loop playsinline autoplay
+                    style="object-fit:contain;"></video>
+            </div>
+        </section>
+
+        <section class="container proj-block">
+            <div class="proj-cols">
+                <h2 data-reveal>Movement,<br />not just <span class="accenttint">models</span></h2>
+                <div class="proj-prose" data-reveal>
+                    <p>
+                        A character only becomes believable once it moves. After modelling, I build a rig — a
+                        digital skeleton — and use it to test poses, cycles and the way weight shifts through
+                        a body.
+                    </p>
+                    <p>
+                        These studies are where I refine <strong>timing and appeal</strong>: the small
+                        anticipation before a step, the follow-through in cloth and hair, the pauses that give
+                        a performance its rhythm.
+                    </p>
+                    <ul>
+                        <li>Rigging characters for clean, expressive deformation</li>
+                        <li>Pose-to-pose and looped animation studies</li>
+                        <li>Turntables to read silhouette and form in motion</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="container proj-block" style="padding-top:0;">
+            <div class="proj-gallery">
+                <figure class="wide" data-reveal>
+                    <img src="../video/Characters.gif" alt="Animated character studies loop" />
+                    <figcaption>Animated character studies</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="proj-next">
+            <div class="container">
+                <a href="additional-work.html">
+                    <span class="label">Next project</span>
+                    <span class="name">Additional Work <span class="arrow">→</span></span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <ul class="footer-socials">
+                <li><a href="https://www.linkedin.com/in/moritz-richter-033143255" target="_blank"
+                        rel="noopener">LinkedIn</a></li>
+                <li><a href="https://www.artstation.com/" target="_blank" rel="noopener" data-artstation>ArtStation</a>
+                </li>
+                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+                <li><a href="mailto:mor1tzr1chter@web.de">Email</a></li>
+            </ul>
+            <p class="footer-meta">© <span id="year"></span> Moritz Richter · <a href="../impressum.html">Impressum</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

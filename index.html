@@ -1,243 +1,316 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="no-js">
 
 <head>
-    <title>Portfolio Moritz Richter</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compitble" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/media.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MoRi — Moritz Richter · Creative Generalist</title>
+    <meta name="description"
+        content="MoRi — Moritz Richter. Creative generalist focused on 3D art and motion design. A cinematic portfolio of characters, films and crafted worlds." />
+
+    <meta property="og:title" content="MoRi — Moritz Richter" />
+    <meta property="og:description" content="Creative generalist · 3D art & motion design." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/Logo.png" />
+
+    <link rel="icon" href="images/Logo.png" />
+    <script>document.documentElement.classList.remove('no-js');</script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
-    <div class="wrapper">  <!----- WRAPPER START ---->
+    <div class="atmosphere" aria-hidden="true"></div>
 
-        <!------ CUSTOM CURSOR ----->
-
-        <div class="cursor-1"></div>
-
-        <!------- HEADER ------>
-
-        <header>
+    <!-- ============ HEADER ============ -->
+    <header class="site-header" id="header">
+        <div class="container nav">
+            <a class="nav-brand" href="#top" aria-label="MoRi — home">Mo<span class="accent">Ri</span></a>
             <nav>
-                <a href="#"><img src="images/Logo.png" class="logo" alt=""></a>
-                <ul id="sidemenu">
-                    <li><a href="#" onclick="closemenu()">Home</a></li>
-                    <li><a href="#about" onclick="closemenu()">About</a></li>
-                    <li><a href="#services" onclick="closemenu()">Services</a></li>
-                    <li><a href="#portfolio" onclick="closemenu()">Portfolio</a></li>
-                    <li><a href="#contact" onclick="closemenu()">Contact</a></li>
-                    <li><i class="fas fa-solid fa-times" onclick="closemenu()"></i></li>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="images/CV_Moritz_Richter.pdf" download>Résumé</a></li>
                 </ul>
-                <i class="fas fa-solid fa-bars" onclick="openmenu()"></i>
             </nav>
-        </header>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
 
-        <!-------- HOME -------->
+    <main id="top">
+        <!-- ============ HERO ============ -->
+        <section class="hero" id="hero">
+            <p class="eyebrow hero__tag" data-reveal>Creative Generalist · 3D &amp; Motion</p>
 
-        <section id="home">
+            <h1 class="wordmark" id="wordmark" aria-label="Moritz Richter">
+                <span class="fixed">Mo</span><span class="grow">ritz</span><span class="gap">&nbsp;</span><span
+                    class="fixed">Ri</span><span class="grow">chter</span>
+            </h1>
+
+            <p class="hero__sub" data-reveal>
+                A cinematic portfolio of characters, short films and crafted worlds —
+                handmade, intentional, and a little mysterious.
+            </p>
+
+            <div class="hero__scrollcue" aria-hidden="true">
+                <span>Scroll</span>
+                <span class="line"></span>
+            </div>
+        </section>
+
+        <!-- ============ SHOWREEL ============ -->
+        <section class="section showreel" id="reel">
             <div class="container">
-                <div class="home-text">
-                    
-                    <h1>Hi its me, <span>Moritz</span></h1>
-                    <p>3D-Artist</p>
+                <div class="section-head" data-reveal>
+                    <h2>The Showreel</h2>
+                    <p class="lead">
+                        Start here. My animated short film <em>The Sorcerer's Apprentice</em> —
+                        the clearest introduction to how I build worlds and bring characters to life.
+                    </p>
+                </div>
+
+                <div class="reel" id="reelPlayer" data-reveal>
+                    <video id="reelVideo" preload="none" playsinline controls
+                        poster="images/stills/showreel-poster.jpg">
+                        <source src="video/Zauberlehrling.mp4" type="video/mp4" />
+                    </video>
+                    <img class="reel__poster" src="images/stills/showreel-poster.jpg"
+                        alt="Still from The Sorcerer's Apprentice short film" />
+                    <div class="reel__overlay" id="reelOverlay">
+                        <button class="reel__play" id="reelPlay" aria-label="Play showreel">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </button>
+                        <span class="reel__label">Play · sound off by default</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!--------- ABOUT ---------->
-
-        <section id="about">
+        <!-- ============ WORK ============ -->
+        <section class="section" id="work">
             <div class="container">
-                <div class="row">
-                    <div class="about-col-1">
-                        <img src="images/Moritz.jpg" alt="">
-                    </div>
-                    <div class="about-col-2">
-                        <h1 class="sub-title"><span>About</span> Me</h1>
-                        <p>
-                            Hey, I am Moritz, I am 25 years old, I am currently discovering my creativity and excitement for 3D-Modelling 
-                            and 3D-Animation during my masters degree in Media- and Gameconcipation in the beautiful Harz.
-                        </p>
-                        <div class="tab-titles">
-                            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                            <p class="tab-links" onclick="opentab('experience')">Experiences</p>
-                            <p class="tab-links"onclick="opentab('education')">Education</p>
-                        </div>
-                        <div class="tab-contents active-tab" id="skills">
-                            <ul>
-                                <li><span>3D-Modelling</span><br>Modelling 3D Models with Blender</li>
-                                <li><span>3D-Animation</span><br>Rigging and animattion of 3D Characters in Blender</li>
-                                <li><span>Programming</span><br>Programming small 2D games with Unity</li>
-                            </ul>
-                        </div>
-                        <div class="tab-contents" id="experience">
-                            <ul>
-                                <li><span>The Magical Forest</span><br> 3D Animation Film <br> Modelling, Rigging, Animating 3D Characters (Blender), Writing of a Script and Storyline</li>
-                                <li><span>The Sorcerer's Apprentice</span><br> 3D Animation Film with Motion Capture <br> Modelling, Rigging, Animating 3D Characters (Blender), Writing of a Script and Storyline</li>
-                                <li><span>House Of Grief</span><br> 2D Sidescroller Adventure in Unity <br> Programming (C#, Unity)</li>
-                                <li><span>Afterlife</span><br>2D Point and Click Adventure in Unity <br> Programming and Animation (C#, Unity)</li>
-                            </ul>
-                        </div>
-                        <div class="tab-contents" id="education">
-                            <ul>
-                                <li><span>2022 - current</span><br>Media- and Gamedevelopment M.A. <br> Hochschule Harz Wernigerode</li>
-                                <li><span>2017 - 2022</span><br>Information Science B.S. <br> TU Braunschweig</li>
-                                <li><span>2014 - 2017</span><br>A-Level <br> BBS 1 Goslar - Am Stadtgarten</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="about-col-3">
-                        <div class="aboutbtn" id="aboutbtn">
-                            <button class="btn">More About Me</button>
-                        </div>
-                        <div class="abouttext" id="abouttext">
-                            <div>
-                                <p>
-                                    My name is Moritz, I am from Germany and successfully studied information science even though I rapidly discovered 
-                                    a kind of antipathy for programming. That´s why I am currently discovering my creativity and love for 3D-Modelling 
-                                    and Animation during my masters in "Media and Gameconcipation" at the Hochschule Harz. <br>
-                                    During my free time, I love to give free rein to my creativity while designing and modeling 3D characters. 
-                                    As I give my characters unique features I can later bring them to life during the animation. <br>
-                                    As a student of gameconcipation, I also enjoy playing video games most of the time. Mostly I am a sucker for 
-                                    multiplayer action and roleplay games, simply because they offer the most variety of different characters and also 
-                                    give me the ability to stay in contact with my friends to have a laugh and also some rage.
-                                    Whenever I have spent enough time in front of my PC I like to exercise and get my head off while
-                                    going for a swim or going boulders. <br>
-                                    To my strengths apart from my professional competence in information science I account for my social skills.
-                                    Thanks to my sympathy and my need for harmony I always make friends with a large variety of people which till now
-                                    always had benefits for my studying and working environment.
-                                </p>
+                <div class="section-head" data-reveal>
+                    <h2>Selected Work</h2>
+                    <p class="lead">
+                        Five projects, each its own world. Films, characters, posters and motion —
+                        the throughline is craft.
+                    </p>
+                </div>
+
+                <div class="projects">
+                    <!-- 1 · Mala -->
+                    <article class="feature" style="--c: var(--c-mala);" data-reveal>
+                        <a class="feature__media" href="projects/mala.html" aria-label="Open Mala project">
+                            <span class="badge--soon">In production</span>
+                            <img src="images/stills/showreel-poster.jpg" alt="Mala — short film" loading="lazy" />
+                            <span class="corner"></span>
+                        </a>
+                        <div class="feature__body">
+                            <div class="feature__num">01</div>
+                            <div class="feature__kicker"><span class="dot"></span>Short Film</div>
+                            <h3 class="feature__title">Mala</h3>
+                            <p class="feature__desc">
+                                A narrative short film in production — a story told through light,
+                                staging and patient character animation.
+                            </p>
+                            <div class="feature__meta">
+                                <span class="tag">Direction</span>
+                                <span class="tag">3D Animation</span>
+                                <span class="tag">Lighting</span>
                             </div>
+                            <a class="text-link" href="projects/mala.html">View project <span
+                                    class="arrow">→</span></a>
                         </div>
+                    </article>
+
+                    <!-- 2 · Poster Series -->
+                    <article class="feature" style="--c: var(--c-poster);" data-reveal>
+                        <a class="feature__media" href="projects/poster-series.html"
+                            aria-label="Open Poster Series project">
+                            <span class="badge--soon">Coming soon</span>
+                            <img src="images/Hands.png" alt="Poster Series" loading="lazy"
+                                style="object-fit: contain; background: var(--ink-800); padding: 8%;" />
+                            <span class="corner"></span>
+                        </a>
+                        <div class="feature__body">
+                            <div class="feature__num">02</div>
+                            <div class="feature__kicker"><span class="dot"></span>Graphic / Print</div>
+                            <h3 class="feature__title">Poster Series</h3>
+                            <p class="feature__desc">
+                                A set of printed pieces exploring composition, type and colour —
+                                the graphic counterweight to the 3D work.
+                            </p>
+                            <div class="feature__meta">
+                                <span class="tag">Art Direction</span>
+                                <span class="tag">Typography</span>
+                                <span class="tag">Print</span>
+                            </div>
+                            <a class="text-link" href="projects/poster-series.html">View project <span
+                                    class="arrow">→</span></a>
+                        </div>
+                    </article>
+
+                    <!-- 3 · Freya -->
+                    <article class="feature" style="--c: var(--c-freya);" data-reveal>
+                        <a class="feature__media" href="projects/freya.html" aria-label="Open Freya project">
+                            <img src="images/Freya/Freya Model 3.png" alt="Freya — 3D character" loading="lazy" />
+                            <span class="corner"></span>
+                        </a>
+                        <div class="feature__body">
+                            <div class="feature__num">03</div>
+                            <div class="feature__kicker"><span class="dot"></span>Character Design</div>
+                            <h3 class="feature__title">Freya</h3>
+                            <p class="feature__desc">
+                                A young girl lost in an endless forest. From hand-drawn references to a
+                                fully modelled 3D character — the heart of <em>The Magic Forest</em>.
+                            </p>
+                            <div class="feature__meta">
+                                <span class="tag">Concept</span>
+                                <span class="tag">3D Modelling</span>
+                                <span class="tag">Character</span>
+                            </div>
+                            <a class="text-link" href="projects/freya.html">View project <span
+                                    class="arrow">→</span></a>
+                        </div>
+                    </article>
+
+                    <!-- 4 · Motion Design -->
+                    <article class="feature" style="--c: var(--c-motion);" data-reveal>
+                        <a class="feature__media" href="projects/motion-design.html"
+                            aria-label="Open Motion Design project">
+                            <video src="video/characters.mp4" poster="images/stills/motion-poster.jpg" muted loop
+                                playsinline preload="none" autoplay></video>
+                            <span class="corner"></span>
+                        </a>
+                        <div class="feature__body">
+                            <div class="feature__num">04</div>
+                            <div class="feature__kicker"><span class="dot"></span>Motion Design</div>
+                            <h3 class="feature__title">Motion Studies</h3>
+                            <p class="feature__desc">
+                                Character animation and movement studies — rigging, weight and timing
+                                turning still models into performances.
+                            </p>
+                            <div class="feature__meta">
+                                <span class="tag">Rigging</span>
+                                <span class="tag">Animation</span>
+                                <span class="tag">Timing</span>
+                            </div>
+                            <a class="text-link" href="projects/motion-design.html">View project <span
+                                    class="arrow">→</span></a>
+                        </div>
+                    </article>
+
+                    <!-- 5 · Additional Work -->
+                    <article class="feature" style="--c: var(--c-additional);" data-reveal>
+                        <a class="feature__media" href="projects/additional-work.html"
+                            aria-label="Open Additional Work">
+                            <img src="images/Room/4k render front final.png" alt="3D Children's Room render"
+                                loading="lazy" />
+                            <span class="corner"></span>
+                        </a>
+                        <div class="feature__body">
+                            <div class="feature__num">05</div>
+                            <div class="feature__kicker"><span class="dot"></span>Selected Pieces</div>
+                            <h3 class="feature__title">Additional Work</h3>
+                            <p class="feature__desc">
+                                More from the workshop — the <em>Sorcerer's Apprentice</em> film,
+                                a fully rendered 3D children's room, and other crafted scenes.
+                            </p>
+                            <div class="feature__meta">
+                                <span class="tag">3D Modelling</span>
+                                <span class="tag">Lighting</span>
+                                <span class="tag">Rendering</span>
+                            </div>
+                            <a class="text-link" href="projects/additional-work.html">View work <span
+                                    class="arrow">→</span></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ABOUT ============ -->
+        <section class="section about" id="about">
+            <div class="container about__grid">
+                <div class="about__portrait" data-reveal>
+                    <img src="images/Moritz.jpg" alt="Portrait of Moritz Richter" loading="lazy" />
+                </div>
+                <div class="about__body" data-reveal>
+                    <p class="eyebrow">About</p>
+                    <h2>Curious by default,<br />serious about craft.</h2>
+                    <p>
+                        I'm <strong>Moritz Richter</strong> — a creative generalist drawn to the point where
+                        story, character and image meet. I started in information science, then followed my
+                        curiosity into 3D and motion during my master's in Media &amp; Game Conception.
+                    </p>
+                    <p>
+                        I like giving characters a face and a feeling, then bringing them to life through
+                        animation. Whether it's a short film, a single character or a printed poster, I care
+                        about the same things: <strong>intention, atmosphere and the handmade detail</strong>.
+                    </p>
+                    <div class="about__disciplines">
+                        <span class="tag">3D Modelling</span>
+                        <span class="tag">Character Design</span>
+                        <span class="tag">Rigging &amp; Animation</span>
+                        <span class="tag">Motion Design</span>
+                        <span class="tag">Direction</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!---------- SERVICES ---------->
-
-        <section id="services">
+        <!-- ============ CONTACT ============ -->
+        <section class="section contact" id="contact">
             <div class="container">
-                <h1 class="sub-title">My <span>Services</span></h1>
-                <div class="classList">
-                    <div class="services-list">
-                        <div>
-                            <i class="fa-solid fa-wand-magic-sparkles"></i>
-                            <i class="fa-solid fa-clapperboard"></i>
-                            <h2>3D-Animation</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui in nostrum, magni totam vero molestiae ea nesciunt! Magnam eius perspiciatis in soluta a voluptate, nobis qui. Fugit accusamus saepe dolore.</p>
-                            <p>Giving a Character an </p>
-                            <a href="#">Learn More</a>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-hammer"></i>
-                            <h2>3D-Modeling</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui in nostrum, magni totam vero molestiae ea nesciunt! Magnam eius perspiciatis in soluta a voluptate, nobis qui. Fugit accusamus saepe dolore.</p>
-                            <a href="#">Learn More</a>
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-bone"></i>
-                            <h2>3D-Rigging</h2>
-                            <p>Giving a character a rig to bring him to life later on during animation. Therefore, </p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui in nostrum, magni totam vero molestiae ea nesciunt! Magnam eius perspiciatis in soluta a voluptate, nobis qui. Fugit accusamus saepe dolore.</p>
-                            <a href="#">Learn More</a>
-                        </div>
-                    </div>
+                <p class="eyebrow" data-reveal>Let's make something</p>
+                <h2 class="contact__big" data-reveal>
+                    <a href="mailto:mor1tzr1chter@web.de">Get in touch</a>
+                </h2>
+                <div class="contact__actions" data-reveal>
+                    <a class="btn btn--solid" href="mailto:mor1tzr1chter@web.de">Email me <span
+                            class="arrow">→</span></a>
+                    <a class="btn" href="images/CV_Moritz_Richter.pdf" download>Download résumé</a>
                 </div>
             </div>
         </section>
+    </main>
 
-        <!----------- PORTFOLIO ------------>
-
-        <section id="portfolio">
-            <div class="container">
-                <h1 class="sub-title">My <span>Work</span></h1>
-                <div class="work-list">
-                    <div class="work">
-                        <img src="images/Freya/Freya Reference 1.jpg" alt="">
-                        <div class="layer">
-                            <h3>The Magic Forest</h3>
-                            <p>3D Animation Film</p>
-                            <a href="html/projects.html#forest"><i class="fa-solid fa-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="work">
-                        <img src="images/Wizard/Apprentice.png" alt="">
-                        <div class="layer">
-                            <h3>The Wizard's Apprentice</h3>
-                            <p>3D MoCap Animation Film</p>
-                            <a href="html/projects.html#wizard"><i class="fa-solid fa-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="work">
-                        <img src="images/Room/4k render front final.png" alt="">
-                        <div class="layer">
-                            <h3>Childrens Room</h3>
-                            <p>3D Modelling Project</p>
-                            <a href="html/projects.html#room"><i class="fa-solid fa-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <a href="html/projects.html" class="btn">See More</a>
-            </div>
-        </section>
-
-        <!--------- CONTACT ---------->
-
-        <section id="contact">
-            <div class="container">
-                <h1 class="sub-title"><span>Contact</span> Me</h1>
-                <div class="row">
-                    <div class="contact-left">
-                        <p><i class="fa-solid fa-user"></i>Moritz Richter</p>
-                        <p><i class="fa-solid fa-location-dot"></i>38667, Bad Harzburg</p>
-                        <p><i class="fa-regular fa-paper-plane"></i>mor1tzr1chter@web.de</p>
-                        <p><i class="fa-solid fa-mobile"></i>015202650072</p>
-                        <div class="social-icons">
-                            <a href="https://www.linkedin.com/in/moritz-richter-033143255"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="https://www.pinterest.de/richtermoritz1998/"><i class="fa-brands fa-pinterest"></i></a>
-                            <a href="https://twitter.com/R495141R"><i class="fa-brands fa-twitter"></i></a>
-                        </div>
-
-                    </div>
-                    <div class="contact-right">
-                        <form id="send" action="">
-                            <input type="text" name="name" placeholder="Your Name" required>
-                            <input type="email" name="email" placeholder="Your Email" required>
-                            <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-                        </form>
-                    </div>
-                    <div class="contact-left lower">
-                        <a href="images/CV_Moritz_Richter.pdf" download class="btn">Download CV</a>
-                    </div>
-                    <div class="contact-right lower">
-                        <button type="submit" form="send" class="btn">Send</button>
-                    </div>
-                </div>
-                
-                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d78815.45518727122!2d10.485080524644227!3d51.87952332425856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a514ce6a1f388d%3A0x425ac6d94ac3f60!2sBad%20Harzburg!5e0!3m2!1sde!2sde!4v1681135581192!5m2!1sde!2sde" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-
-            </div>
-        </section>
-    </div> <!----- WRAPPER ENDS ---->
-
-    <!-------- FOOTER -------->
-
-    <footer> 
-        <p>Made by me <span>Moritz</span> with <i class="fa-solid fa-heart"></i> | All rights reserved</p>
-        <a href="html/impressum.html">Impressum</a>
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+        <div class="container">
+            <ul class="footer-socials">
+                <li><a href="https://www.linkedin.com/in/moritz-richter-033143255" target="_blank"
+                        rel="noopener">LinkedIn</a></li>
+                <li><a href="https://www.artstation.com/" target="_blank" rel="noopener" data-artstation>ArtStation</a>
+                </li>
+                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+                <li><a href="mailto:mor1tzr1chter@web.de">Email</a></li>
+            </ul>
+            <p class="footer-meta">
+                © <span id="year"></span> Moritz Richter ·
+                <a href="impressum.html">Impressum</a>
+            </p>
+        </div>
     </footer>
 
-    <!-------- SCRIPTS -------->
-
-    <script src="js/script.js"></script>
-    <script src="https://kit.fontawesome.com/d1b8a18a92.js" crossorigin="anonymous"></script>
-
+    <!-- ============ SCRIPTS ============ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>
