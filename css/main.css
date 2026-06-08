@@ -23,7 +23,7 @@ body {
     background: var(--ink-900);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 /* Lenis */
@@ -325,8 +325,17 @@ main {
 /* =============================================================
    HERO
    ============================================================= */
-.hero {
+/* Pin wrapper: gives the sticky hero scroll-distance to reveal the full name
+   before the page advances to the showreel. */
+.hero-pin {
     position: relative;
+    height: 200vh;
+}
+
+.hero {
+    position: sticky;
+    top: 0;
+    height: 100svh;
     min-height: 100svh;
     display: flex;
     flex-direction: column;
@@ -335,6 +344,16 @@ main {
     text-align: center;
     padding: 7rem var(--gutter) 4rem;
     overflow: hidden;
+}
+
+/* No-JS / reduced fallback: if the pin can't be driven, don't trap the user
+   in a 200vh empty block — collapse it to a single screen. */
+.no-pin .hero-pin {
+    height: auto;
+}
+
+.no-pin .hero {
+    position: relative;
 }
 
 .hero__tag {

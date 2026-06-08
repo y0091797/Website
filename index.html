@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js no-pin">
 
 <head>
     <meta charset="UTF-8" />
@@ -14,7 +14,7 @@
     <meta property="og:image" content="images/Logo.png" />
 
     <link rel="icon" href="images/Logo.png" />
-    <script>document.documentElement.classList.remove('no-js');</script>
+    <script>document.documentElement.classList.remove('no-js', 'no-pin');</script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -50,24 +50,26 @@
 
     <main id="top">
         <!-- ============ HERO ============ -->
-        <section class="hero" id="hero">
-            <p class="eyebrow hero__tag" data-reveal>Creative Generalist · 3D &amp; Motion</p>
+        <div class="hero-pin" id="heroPin">
+            <section class="hero" id="hero">
+                <p class="eyebrow hero__tag" data-reveal>Creative Generalist · 3D &amp; Motion</p>
 
-            <h1 class="wordmark" id="wordmark" aria-label="Moritz Richter">
-                <span class="fixed">Mo</span><span class="grow">ritz</span><span class="gap">&nbsp;</span><span
-                    class="fixed">Ri</span><span class="grow">chter</span>
-            </h1>
+                <h1 class="wordmark" id="wordmark" aria-label="Moritz Richter">
+                    <span class="fixed">Mo</span><span class="grow">ritz</span><span class="gap">&nbsp;</span><span
+                        class="fixed">Ri</span><span class="grow">chter</span>
+                </h1>
 
-            <p class="hero__sub" data-reveal>
-                A cinematic portfolio of characters, short films and crafted worlds —
-                handmade, intentional, and a little mysterious.
-            </p>
+                <p class="hero__sub" data-reveal>
+                    A cinematic portfolio of characters, short films and crafted worlds —
+                    handmade, intentional, and a little mysterious.
+                </p>
 
-            <div class="hero__scrollcue" aria-hidden="true">
-                <span>Scroll</span>
-                <span class="line"></span>
-            </div>
-        </section>
+                <div class="hero__scrollcue" aria-hidden="true">
+                    <span>Scroll</span>
+                    <span class="line"></span>
+                </div>
+            </section>
+        </div>
 
         <!-- ============ SHOWREEL ============ -->
         <section class="section showreel" id="reel">

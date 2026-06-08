@@ -83,23 +83,36 @@
     }
 
     var hero = document.getElementById("hero");
-    function morphFromScroll(y) {
-        if (!wordmark || !hero) return;
-        var range = Math.max(1, hero.offsetHeight * 0.62);
-        var p = Math.max(0, Math.min(1, y / range));
-        applyMorph(p);
+    var heroPin = document.getElementById("heroPin");
+    // Whether we drive the sticky-pin reveal (home page with the wordmark).
+    var hasPin = !!(heroPin && wordmark);
+
+    // Progress (0..1) of the pinned reveal, from how far we've scrolled through
+    // the tall .hero-pin wrapper while the hero stays stuck to the top.
+    function morphProgress() {
+        if (!heroPin) return 0;
+        var rect = heroPin.getBoundingClientRect();
+        var dist = rect.height - window.innerHeight;
+        if (dist <= 0) return rect.top <= 0 ? 1 : 0;
+        return Math.max(0, Math.min(1, (-rect.top) / dist));
     }
 
-    /* Combined scroll handler */
-    function handleScroll(y) {
-        onScrollHeader(y);
-        morphFromScroll(y);
+    function onScroll(y) {
+        if (hasPin) {
+            var p = morphProgress();
+            applyMorph(p);
+            // Brand "MoRi" appears once the name is fully revealed and stays for
+            // the rest of the page; collapses back near the top.
+            if (header) header.classList.toggle("is-scrolled", p > 0.985);
+        } else {
+            onScrollHeader(y);
+        }
     }
 
     if (lenis) {
-        lenis.on("scroll", function (e) { handleScroll(e.scroll); });
+        lenis.on("scroll", function (e) { onScroll(e.scroll); });
     } else {
-        window.addEventListener("scroll", function () { handleScroll(window.scrollY || window.pageYOffset); }, { passive: true });
+        window.addEventListener("scroll", function () { onScroll(window.scrollY || window.pageYOffset); }, { passive: true });
     }
 
     /* ---------------- Reveals ---------------- */
@@ -177,14 +190,14 @@
     /* ---------------- Init ---------------- */
     function init() {
         measure();
-        handleScroll(window.scrollY || window.pageYOffset);
+        onScroll(window.scrollY || window.pageYOffset);
         if (hasGSAP && window.ScrollTrigger) window.ScrollTrigger.refresh();
     }
 
     if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(function () { measure(); handleScroll(window.scrollY || 0); });
+        document.fonts.ready.then(function () { measure(); onScroll(window.scrollY || 0); });
     }
     window.addEventListener("load", init);
-    window.addEventListener("resize", function () { measure(); morphFromScroll(window.scrollY || (lenis ? lenis.scroll : 0)); });
+    window.addEventListener("resize", function () { measure(); onScroll(window.scrollY || (lenis ? lenis.scroll : 0)); });
     init();
 })();
