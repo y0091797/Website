@@ -160,6 +160,31 @@
         });
     }
 
+    /* ---------------- Feature Video Autoplay ---------------- */
+    document.querySelectorAll(".feature").forEach(card => {
+        const video = card.querySelector("video");
+
+        if (!video) return;
+
+        card.addEventListener("mouseenter", () => {
+            video.muted = true;
+            video.play();
+        });
+
+        card.addEventListener("mouseleave", () => {
+            video.pause();
+            // video.currentTime = 0;
+        });
+    });
+
+        /* ---------------- Feature Video Autoplay ---------------- */
+    document.querySelectorAll(".hover-play").forEach(video => {
+        const fig = video.closest("figure");
+
+        fig.addEventListener("mouseenter", () => video.play());
+        fig.addEventListener("mouseleave", () => video.pause());
+    });
+
     /* ---------------- Showreel play ---------------- */
     var reelPlayer = document.getElementById("reelPlayer");
     var reelVideo = document.getElementById("reelVideo");

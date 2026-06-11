@@ -489,7 +489,7 @@ main {
 .reel img.reel__poster {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .reel__poster {
@@ -602,13 +602,13 @@ main {
 .feature__media video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 1.1s var(--ease-out);
 }
 
 .feature:hover .feature__media img,
 .feature:hover .feature__media video {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .feature__media .corner {
@@ -659,6 +659,11 @@ main {
 
 .feature:hover .feature__title {
     color: color-mix(in srgb, var(--c) 35%, var(--cream));
+}
+
+.feature:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
 .feature__desc {

@@ -30,7 +30,7 @@
                     <li><a href="../index.html#work">Work</a></li>
                     <li><a href="../index.html#about">About</a></li>
                     <li><a href="../index.html#contact">Contact</a></li>
-                    <li><a href="../images/CV_Moritz_Richter.pdf" download>Résumé</a></li>
+                    <li><a href="../images/CV_Moritz_Richter.pdf" download>Resume</a></li>
                 </ul>
             </nav>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -42,11 +42,12 @@
     <main id="top">
         <section class="container proj-hero">
             <a class="proj-back" href="../index.html#work"><span class="arrow">←</span> All work</a>
-            <p class="proj-kicker" data-reveal><span class="dot"></span>Short Film · In Production</p>
+            <p class="proj-kicker" data-reveal><span class="dot"></span>Short Film</p>
             <h1 class="proj-title" data-reveal>Mala</h1>
             <p class="proj-overview" data-reveal>
-                A narrative short film, currently in production. The full case study — story, stills, process
-                and final film — will live here once it's ready.
+                A cinematic short film about wonder, starlight and the stories we find in the night sky. 
+                Created as part of my master's project, Mala combines storytelling, character animation and stylized 3D environments 
+                into a personal exploration of curiosity, nature and imagination.
             </p>
 
             <dl class="proj-meta" data-reveal>
@@ -56,32 +57,112 @@
                 </div>
                 <div>
                     <dt>Role</dt>
-                    <dd>Direction · 3D · Animation</dd>
+                    <dd>Direction · Storytelling · 3D Art · Animation</dd>
+                </div>
+                <div>
+                    <dt>Focus</dt>
+                    <dd>Atmosphere · Character Animation · Visual Storytelling</dd>
                 </div>
                 <div>
                     <dt>Status</dt>
-                    <dd>In production</dd>
-                </div>
-                <div>
-                    <dt>Case study</dt>
-                    <dd>Coming soon</dd>
+                    <dd>Completed</dd>
                 </div>
             </dl>
+
+
         </section>
 
-        <section class="container proj-block" style="padding-top:clamp(1rem,3vw,2rem);">
-            <div class="proj-soon" data-reveal>
-                <span class="pill">In production</span>
-                <h3>This page is being assembled</h3>
-                <p>
-                    Mala is still in the making. Rather than fill this space with placeholder content, it's
-                    being kept deliberately quiet until the work is ready to be shown properly. Want an early
-                    look or to talk about the project?
-                </p>
-                <p style="margin-top:1.6rem;">
-                    <a class="btn btn--solid" href="mailto:mor1tzr1chter@web.de">Get in touch <span
-                            class="arrow">→</span></a>
-                </p>
+        <section class="section showreel" id="reel">
+            <div class="container">
+                <div class="section-head" data-reveal>
+                    <h2>Stars Calling</h2>
+                    <p class="lead">
+                        My animated short film <em>Mala</em> —
+                        the clearest introduction to how I build worlds and bring characters to life.
+                    </p>
+                </div>
+
+                <div class="reel" id="reelPlayer" data-reveal>
+                    <video id="reelVideo" preload="none" playsinline controls
+                        poster="../images/Mala/Mala_Full.png">
+                        <source src="../video/Mala_Final.mp4" type="video/mp4" />
+                    </video>
+                    <div class="reel__overlay" id="reelOverlay">
+                        <button class="reel__play" id="reelPlay" aria-label="Play showreel">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </button>
+                        <span class="reel__label">Play</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container proj-block">
+            <div class="proj-cols">
+                <h2 data-reveal>Stories written by <br /> <span class="accenttint">Starlight</span></h2>
+                <div class="proj-prose" data-reveal>
+                    <p>
+                        Mala is a narrative short film created as the centerpiece of my master's project. 
+                        More than any other work in my portfolio, it represents my interest in storytelling, atmosphere and character-driven worlds.
+                    </p>
+                    <p> 
+                        The film follows Mala, a young stargazer whose connection to the night sky becomes a way of understanding the world around her. 
+                        Inspired by themes of wonder, nature and imagination, the project explores how simple moments can carry meaning when viewed through a different lens.
+                    </p>
+                    <p>
+                        From the earliest story concepts to the final rendered shots, the project required the development of characters, 
+                        environments, animation, lighting and visual storytelling. 
+                        Over the course of production, it evolved from an initial idea into a complete short film, allowing me to combine many of the disciplines 
+                        I enjoy most into a single cohesive piece.
+                    </p>
+                    <p>
+                        Mala became more than a technical exercise. 
+                        It was an opportunity to create a world, establish a visual language and tell a story that reflects the kind of work I want to pursue in the future: 
+                        thoughtful, atmospheric and driven by emotion rather than spectacle.
+                    </p>
+                    <ul>
+                        <li>Story development &amp; screenplay</li>
+                        <li>Character design &amp; development</li>
+                        <li>Environment design &amp; worldbuilding</li>
+                        <li>3D modeling &amp; texturing</li>
+                        <li>Character animation &amp; cinematography</li>
+                        <li>Lighting &amp; rendering &amp; final editing</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="container proj-block" style="padding-top:0;">
+            <div class="proj-gallery">
+                <figure class="third" data-reveal>
+                    <img src="../images/Mala/Mala_001.png" alt="Mala - close up" />
+                    <figcaption>Mala - Close Up</figcaption>
+                </figure>
+                <figure class="third" data-reveal>
+                    <img src="../images/Mala/Mala_Full.png" alt="Mala 3D model — fullview" />
+                    <figcaption>Mala — Full View</figcaption>
+                </figure>
+                <figure class="third" data-reveal>
+                    <img src="../images/Mala/Mala_002.png" alt="Mala - final render" />
+                    <figcaption>Mala - Final Render</figcaption>
+                </figure>
+                <figure class="wide" data-reveal>
+                    <video class="auto-play" src="../video/Mala_Turnaround.mkv" poster="../images/Mala/Mala_001.png" muted loop
+                                playsinline preload="metadata" autoplay></video>
+                    <figcaption>Mala - Showcase 1</figcaption>
+                </figure>
+                <figure class="tall" data-reveal>
+                    <video class="hover-play"src="../video/Mala_Showcase_001.mkv" muted loop
+                                playsinline preload="metadata"></video>
+                    <figcaption>Mala - Showcase 2</figcaption>
+                </figure>
+                <figure class="tall" data-reveal>
+                    <video class="hover-play" src="../video/Mala_Showcase_002.mkv" muted loop
+                                playsinline preload="metadata"></video>
+                    <figcaption>Mala - Showcase 2</figcaption>
+                </figure>
             </div>
         </section>
 
