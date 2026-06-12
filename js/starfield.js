@@ -12,18 +12,19 @@
 (function () {
     "use strict";
 
-    var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var prefersReduced = false; // window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var STAR_COLOR = "242, 230, 200"; // --cream, as rgb for alpha compositing
 
-    Array.prototype.slice
-        .call(document.querySelectorAll("canvas[data-starfield]"))
-        .forEach(initStarfield);
+    var canvases = Array.prototype.slice.call(document.querySelectorAll("canvas[data-starfield]"));
+    canvases.forEach(initStarfield);
 
     function initStarfield(canvas) {
         var ctx = canvas.getContext("2d");
         if (!ctx) return;
 
         var card = canvas.closest(".feature") || canvas.parentElement;
+        
+        if (!card) return;
         var dpr = clampDpr();
         var w = 0, h = 0;
         var stars = [];
@@ -42,6 +43,20 @@
             var rect = canvas.getBoundingClientRect();
             w = rect.width;
             h = rect.height;
+            
+            // Ensure canvas has valid dimensions
+            if (w === 0 || h === 0) {
+                // Fallback: use parent container dimensions
+                var parent = canvas.parentElement;
+                if (parent) {
+                    var parentRect = parent.getBoundingClientRect();
+                    w = w || parentRect.width;
+                    h = h || parentRect.height;
+                }
+            }
+            
+            if (w === 0 || h === 0) return; // Bail if we still have no dimensions
+            
             canvas.width = Math.round(w * dpr);
             canvas.height = Math.round(h * dpr);
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -56,11 +71,11 @@
                 stars.push({
                     x: Math.random() * w,
                     y: Math.random() * h,
-                    r: Math.random() * 1.1 + 0.3,
+                    r: Math.random() * 1.1 + 0.7, // size radius
                     tw: Math.random() * Math.PI * 2,
                     twSpeed: Math.random() * 1.4 + 0.4,
-                    vx: (Math.random() - 0.5) * 0.05,
-                    vy: Math.random() * 0.04 + 0.015
+                    vx: (Math.random() - 0.5) * 0.1, // horizontal drift
+                    vy: (Math.random() - 0.5) * 0.06 // vertical drift, slower than horizontal
                 });
             }
         }
