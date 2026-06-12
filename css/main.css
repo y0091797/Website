@@ -577,12 +577,18 @@ main {
     position: relative;
 }
 
+/* Even cards mirror the layout (media on the right) while keeping the
+   media in the wider 1.15fr column so every portrait renders the same size. */
 .feature:nth-child(even) {
     grid-template-columns: 0.85fr 1.15fr;
 }
 
 .feature:nth-child(even) .feature__media {
-    order: -1;
+    order: 1;
+}
+
+.feature:nth-child(even) .feature__body {
+    order: 0;
 }
 
 .feature__body {
