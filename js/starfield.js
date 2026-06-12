@@ -21,17 +21,19 @@
     var FREYA_GLOW = "104, 214, 120"; // magic-forest green halo
     var FREYA_CORE = "196, 255, 206"; // bright green-white particle core
 
-    var canvases = Array.prototype.slice.call(document.querySelectorAll("canvas[data-starfield]"));
-    canvases.forEach(initStarfield);
+    var layers = Array.prototype.slice.call(document.querySelectorAll("[data-starfield]"));
+    layers.forEach(initStarfield);
 
     function initStarfield(canvas) {
-        var ctx = canvas.getContext("2d");
-        if (!ctx) return;
-
         var card = canvas.closest(".feature") || canvas.parentElement;
-        
         if (!card) return;
         var fx = (canvas.getAttribute("data-fx") || "stars").toLowerCase();
+
+        // CSS-driven effects (no canvas): JS only triggers/times the animation.
+        if (fx === "sheira") { initUplight(canvas, card); return; }
+
+        var ctx = canvas.getContext("2d");
+        if (!ctx) return;
         var dpr = clampDpr();
         var w = 0, h = 0;
         var stars = [];
@@ -292,5 +294,21 @@
         });
 
         resize();
+    }
+
+    /* Sheira — theatrical violet uplight. Pure CSS visuals/animation; JS only
+       (re)triggers the one-shot fade by toggling .is-lit on hover/focus. */
+    function initUplight(el, card) {
+        function trigger() {
+            if (prefersReduced) return;
+            el.classList.remove("is-lit");
+            void el.offsetWidth; // force reflow so the animation can restart
+            el.classList.add("is-lit");
+        }
+        el.addEventListener("animationend", function () {
+            el.classList.remove("is-lit");
+        });
+        card.addEventListener("mouseenter", trigger);
+        card.addEventListener("focusin", trigger);
     }
 })();

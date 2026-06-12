@@ -646,6 +646,52 @@ main {
     opacity: 1;
 }
 
+/* PLACEHOLDER motion layer — Sheira theatrical uplight (CSS-only visuals,
+   JS just toggles .is-lit to trigger the one-shot animation; see js/starfield.js).
+   A soft violet stage light rises from the bottom, like an uplight through fog. */
+.feature__uplight {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(70% 55% at 50% 118%,
+            color-mix(in srgb, var(--c) 50%, transparent) 0%,
+            color-mix(in srgb, var(--c) 24%, transparent) 38%,
+            transparent 72%),
+        linear-gradient(0deg,
+            color-mix(in srgb, var(--c) 18%, transparent) 0%,
+            transparent 45%);
+    filter: blur(6px);
+    transform: translateY(8%) scaleY(0.92);
+    transform-origin: bottom center;
+}
+
+.feature__uplight.is-lit {
+    animation: sheira-uplight 2200ms var(--ease-out) both;
+}
+
+@keyframes sheira-uplight {
+    0% {
+        opacity: 0;
+        transform: translateY(14%) scaleY(0.8);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(0) scaleY(1);
+    }
+    65% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(0) scaleY(1.04);
+    }
+}
+
 .feature:hover .feature__media img,
 .feature:hover .feature__media video {
     transform: scale(1.1);
