@@ -88,8 +88,8 @@
                     r: Math.random() * 1.1 + 0.7, // size radius
                     tw: Math.random() * Math.PI * 2,
                     twSpeed: Math.random() * 1.4 + 0.4,
-                    vx: (Math.random() - 0.5) * 0.1, // horizontal drift
-                    vy: (Math.random() - 0.5) * 0.06 // vertical drift, slower than horizontal
+                    vx: (Math.random() - 0.5) * 0.01, // horizontal drift
+                    vy: (Math.random() - 0.5) * 0.02 // vertical drift, slower than horizontal
                 });
             }
         }
