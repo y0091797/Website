@@ -29,8 +29,9 @@
         if (!card) return;
         var fx = (canvas.getAttribute("data-fx") || "stars").toLowerCase();
 
-        // CSS-driven effects (no canvas): JS only triggers/times the animation.
-        if (fx === "sheira") { initUplight(canvas, card); return; }
+        // CSS-driven effects (no canvas): the visuals + hover trigger live in CSS,
+        // so there's nothing for JS to do here.
+        if (fx === "sheira") return;
 
         var ctx = canvas.getContext("2d");
         if (!ctx) return;
@@ -296,19 +297,4 @@
         resize();
     }
 
-    /* Sheira — theatrical violet uplight. Pure CSS visuals/animation; JS only
-       (re)triggers the one-shot fade by toggling .is-lit on hover/focus. */
-    function initUplight(el, card) {
-        function trigger() {
-            if (prefersReduced) return;
-            el.classList.remove("is-lit");
-            void el.offsetWidth; // force reflow so the animation can restart
-            el.classList.add("is-lit");
-        }
-        el.addEventListener("animationend", function () {
-            el.classList.remove("is-lit");
-        });
-        card.addEventListener("mouseenter", trigger);
-        card.addEventListener("focusin", trigger);
-    }
 })();
