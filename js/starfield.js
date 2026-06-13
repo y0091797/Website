@@ -21,17 +21,20 @@
     var FREYA_GLOW = "104, 214, 120"; // magic-forest green halo
     var FREYA_CORE = "196, 255, 206"; // bright green-white particle core
 
-    var canvases = Array.prototype.slice.call(document.querySelectorAll("canvas[data-starfield]"));
-    canvases.forEach(initStarfield);
+    var layers = Array.prototype.slice.call(document.querySelectorAll("[data-starfield]"));
+    layers.forEach(initStarfield);
 
     function initStarfield(canvas) {
-        var ctx = canvas.getContext("2d");
-        if (!ctx) return;
-
         var card = canvas.closest(".feature") || canvas.parentElement;
-        
         if (!card) return;
         var fx = (canvas.getAttribute("data-fx") || "stars").toLowerCase();
+
+        // CSS-driven effects (no canvas): the visuals + hover trigger live in CSS,
+        // so there's nothing for JS to do here.
+        if (fx === "sheira") return;
+
+        var ctx = canvas.getContext("2d");
+        if (!ctx) return;
         var dpr = clampDpr();
         var w = 0, h = 0;
         var stars = [];
@@ -293,4 +296,5 @@
 
         resize();
     }
+
 })();

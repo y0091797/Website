@@ -179,10 +179,11 @@
 
         /* ---------------- Feature Video Autoplay ---------------- */
     document.querySelectorAll(".hover-play").forEach(video => {
-        const fig = video.closest("figure");
+        const container = video.closest("figure") || video.closest('.feature__media') || video.parentElement;
+        if (!container) return;
 
-        fig.addEventListener("mouseenter", () => video.play());
-        fig.addEventListener("mouseleave", () => video.pause());
+        container.addEventListener("mouseenter", () => video.play());
+        container.addEventListener("mouseleave", () => video.pause());
     });
 
     /* ---------------- Showreel play ---------------- */
