@@ -246,9 +246,10 @@ main {
 /* brand collapses to MoRi; hidden at the very top (hero owns the wordmark) */
 .nav-brand {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 4vw, 1.5rem);
     font-weight: 600;
     letter-spacing: -0.01em;
+    white-space: nowrap;
     color: var(--cream);
     opacity: 0;
     transform: translateY(-6px);
@@ -258,6 +259,11 @@ main {
 
 .nav-brand .accent {
     color: var(--accent);
+}
+
+.grow {
+    white-space: nowrap;
+    display: inline-block;
 }
 
 .site-header.is-scrolled .nav-brand {
@@ -642,13 +648,21 @@ main {
 }
 
 .feature:hover > .starfield,
-.feature:focus-within > .starfield {
+.feature:focus-within > .starfield,
+.feature:active > .starfield,
+.feature:focus-visible > .starfield,
+.feature.is-in > .starfield,
+.feature.is-active > .starfield {
     opacity: 1;
 }
 
-/* PLACEHOLDER motion layer — Sheira theatrical uplight (CSS only; see js/starfield.js).
-   A violet stage light pools at the bottom of the card and slowly flows left/right
-   the whole time the card is hovered, like footlights drifting through fog. */
+.feature__uplight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    filter: blur(12px);
+} 
+
 .feature__uplight {
     position: absolute;
     inset: 0;
@@ -657,48 +671,42 @@ main {
     height: 100%;
     opacity: 0;
     pointer-events: none;
-    mix-blend-mode: screen;
+    mix-blend-mode: soft-light;
+
     border-radius: var(--radius-lg);
     overflow: hidden;
     background:
         /* drifting bright core */
-        radial-gradient(closest-side at 50% 125%,
-            color-mix(in srgb, var(--c) 95%, transparent) 0%,
-            color-mix(in srgb, var(--c) 45%, transparent) 45%,
-            transparent 72%),
+        radial-gradient(circle at 50% 180%,
+            var(--c) 0%,
+            transparent 65%),
         /* steady base wash along the bottom */
-        radial-gradient(120% 70% at 50% 122%,
-            color-mix(in srgb, var(--c) 50%, transparent) 0%,
-            color-mix(in srgb, var(--c) 40%, transparent) 45%,
-            transparent 72%);
+        radial-gradient(circle at 50% 200%,
+            var(--c) 40%,
+            transparent 75%);
     background-repeat: no-repeat;
-    background-size: 150% 120%, 100% 100%;
-    background-position: 0% 100%, 50% 100%;
-    
+    background-size: 140% 140%, 100% 100%;
+    background-position: 50% 200%, 50% 200%;
 }
 
 .feature:hover > .feature__uplight,
 .feature:focus-within > .feature__uplight {
-    opacity: 1;
+    opacity: 0.7;
     animation: sheira-flow 3s ease-in-out infinite;
 }
 
 /* The bright core drifts side to side while also waving up/down for a flowing effect. */
 @keyframes sheira-flow {
     0% {
-        background-position: -150% 100%, 50% 100%;
+        background-position: 45% 100%, 50% 100%;
     }
-    /*25% {
-        background-position: 0% 60%, 50% 100%;
-    }*/
+
     50% {
-        background-position: 2500% 100%, 50% 100%;
+        background-position: 55% 60%, 50% 100%;
     }
-    /*75% {
-        background-position: 100% 60%, 50% 100%;
-    }*/
+
     100% {
-        background-position: -150% 100%, 50% 100%;
+        background-position: 45% 100%, 50% 100%;
     }
 }
 
@@ -935,88 +943,4 @@ main {
 
 .footer-meta a:hover {
     color: var(--accent);
-}
-
-/* =============================================================
-   RESPONSIVE
-   ============================================================= */
-@media (max-width: 920px) {
-    .feature,
-    .feature:nth-child(even) {
-        grid-template-columns: 1fr;
-        gap: 1.6rem;
-    }
-
-    .feature:nth-child(even) .feature__media,
-    .feature__media {
-        order: 0;
-    }
-
-    .about__grid {
-        grid-template-columns: 1fr;
-    }
-
-    .about__portrait {
-        max-width: 420px;
-    }
-}
-
-@media (max-width: 760px) {
-    .nav-toggle {
-        display: flex;
-    }
-
-    .nav-links {
-        position: fixed;
-        inset: 0;
-        flex-direction: column;
-        justify-content: center;
-        gap: 2.4rem;
-        background: rgba(10, 22, 34, 0.96);
-        backdrop-filter: blur(16px);
-        transform: translateY(-100%);
-        transition: transform 0.55s var(--ease-out);
-    }
-
-    .nav-links a {
-        font-size: 1.3rem;
-        color: var(--cream);
-    }
-
-    body.nav-open .nav-links {
-        transform: translateY(0);
-    }
-
-    body.nav-open .nav-toggle span:nth-child(1) {
-        transform: translateY(6.5px) rotate(45deg);
-    }
-
-    body.nav-open .nav-toggle span:nth-child(2) {
-        opacity: 0;
-    }
-
-    body.nav-open .nav-toggle span:nth-child(3) {
-        transform: translateY(-6.5px) rotate(-45deg);
-    }
-
-    .section-head {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
-
-/* reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-    }
-
-    [data-reveal] {
-        opacity: 1;
-        transform: none;
-    }
 }
