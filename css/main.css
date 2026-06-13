@@ -658,6 +658,8 @@ main {
     opacity: 0;
     pointer-events: none;
     mix-blend-mode: screen;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
     background:
         /* drifting bright core */
         radial-gradient(closest-side at 50% 125%,
@@ -667,31 +669,36 @@ main {
         /* steady base wash along the bottom */
         radial-gradient(120% 70% at 50% 122%,
             color-mix(in srgb, var(--c) 50%, transparent) 0%,
-            color-mix(in srgb, var(--c) 20%, transparent) 45%,
+            color-mix(in srgb, var(--c) 40%, transparent) 45%,
             transparent 72%);
     background-repeat: no-repeat;
-    background-size: 70% 95%, 100% 100%;
+    background-size: 150% 120%, 100% 100%;
     background-position: 0% 100%, 50% 100%;
-    filter: blur(6px);
-    transition: opacity 0.6s var(--ease-out);
+    
 }
 
 .feature:hover > .feature__uplight,
 .feature:focus-within > .feature__uplight {
     opacity: 1;
-    animation: sheira-flow 7s ease-in-out infinite;
+    animation: sheira-flow 3s ease-in-out infinite;
 }
 
-/* The bright core drifts side to side while the base wash stays put. */
+/* The bright core drifts side to side while also waving up/down for a flowing effect. */
 @keyframes sheira-flow {
     0% {
-        background-position: 0% 100%, 50% 100%;
+        background-position: -150% 100%, 50% 100%;
     }
+    /*25% {
+        background-position: 0% 60%, 50% 100%;
+    }*/
     50% {
-        background-position: 100% 100%, 50% 100%;
+        background-position: 2500% 100%, 50% 100%;
     }
+    /*75% {
+        background-position: 100% 60%, 50% 100%;
+    }*/
     100% {
-        background-position: 0% 100%, 50% 100%;
+        background-position: -150% 100%, 50% 100%;
     }
 }
 
