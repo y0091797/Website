@@ -233,6 +233,21 @@
         document.querySelectorAll(".feature__media video[autoplay]").forEach(function (v) { vIO.observe(v); });
     }
 
+    /* ---------------- Portrait Images ---------------- */
+    const portraitImages = document.querySelectorAll(".portrait-image");
+
+    if (portraitImages.length > 1) {
+    let current = 0;
+
+    setInterval(() => {
+        portraitImages[current].classList.remove("active");
+
+        current = (current + 1) % portraitImages.length;
+
+        portraitImages[current].classList.add("active");
+    }, 5000);
+    }
+
     /* ---------------- Init ---------------- */
     function init() {
         measure();

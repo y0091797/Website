@@ -510,6 +510,7 @@ main {
 
 .reel:hover .reel__poster {
     transform: scale(1.04);
+    will-change: transform;
 }
 
 .reel__overlay {
@@ -534,6 +535,7 @@ main {
     display: grid;
     place-items: center;
     transition: transform 0.5s var(--ease-out), background 0.5s var(--ease-out);
+    will-change: transform;
 }
 
 .reel:hover .reel__play {
@@ -578,14 +580,14 @@ main {
     padding: clamp(1.25rem, 3vw, 2.5rem);
     border-radius: var(--radius-lg);
     background: transparent;
+    will-change: transform;
     transition: transform 0.6s var(--ease-out), background 0.6s var(--ease-out),
         box-shadow 0.6s var(--ease-out);
     position: relative;
 }
 
-/* Even cards mirror the layout (media on the right) while keeping the
-   media in the wider 1.15fr column so every portrait renders the same size. */
 .feature:nth-child(even) {
+    direction: rtl;
     grid-template-columns: 0.85fr 1.15fr;
 }
 
@@ -595,6 +597,7 @@ main {
 
 .feature:nth-child(even) .feature__body {
     order: 0;
+    direction: ltr;
 }
 
 .feature__body {
@@ -609,13 +612,13 @@ main {
     background: var(--ink-800);
     box-shadow: var(--shadow-soft);
     display: block;
+    contain: paint;
 }
 
 .feature__media::after {
     content: "";
     position: absolute;
     inset: 0;
-    /* background: linear-gradient(180deg, transparent 40%, rgba(10, 22, 34, 0.55)); */
     opacity: 0.7;
     transition: opacity 0.6s var(--ease-out);
 }
@@ -628,6 +631,8 @@ main {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    will-change: transform;
+    transform: translateZ(0);
     transition: transform 1.1s var(--ease-out);
 }
 
@@ -660,7 +665,6 @@ main {
     content: "";
     position: absolute;
     inset: 0;
-    filter: blur(12px);
 } 
 
 .feature__uplight {
@@ -713,7 +717,7 @@ main {
 
 .feature:hover .feature__media img,
 .feature:hover .feature__media video {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .feature__media .corner {
@@ -841,6 +845,30 @@ main {
     height: 100%;
     object-fit: cover;
     filter: saturate(0.92) contrast(1.02);
+}
+
+.portrait-image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 0;
+
+    transform: scale(1.08);
+
+    transition:
+        opacity 1.4s ease,
+        transform 6s ease;
+
+    will-change: transform, opacity;
+}
+
+.portrait-image.active {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .about__portrait::after {
