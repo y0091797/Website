@@ -17,6 +17,7 @@
     "use strict";
 
     var prefersReduced = false; // window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var isTouchDevice = ("ontouchstart" in window) || (navigator.maxTouchPoints > 0);
     var STAR_COLOR = "242, 230, 200"; // --cream, as rgb for alpha compositing
     var FREYA_GLOW = "104, 214, 120"; // magic-forest green halo
     var FREYA_CORE = "196, 255, 206"; // bright green-white particle core
@@ -29,9 +30,18 @@
         if (!card) return;
         var fx = (canvas.getAttribute("data-fx") || "stars").toLowerCase();
 
-        // CSS-driven effects (no canvas): the visuals + hover trigger live in CSS,
-        // so there's nothing for JS to do here.
-        if (fx === "sheira") return;
+        // CSS-driven effects (no canvas): only needs scroll-visibility for touch
+        if (fx === "sheira") {
+            if (isTouchDevice && "IntersectionObserver" in window) {
+                var shIO = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        entry.target.classList.toggle("is-active", entry.isIntersecting);
+                    });
+                }, { threshold: 0.35 });
+                shIO.observe(card);
+            }
+            return;
+        }
 
         var ctx = canvas.getContext("2d");
         if (!ctx) return;
@@ -287,6 +297,22 @@
         card.addEventListener("mouseleave", scheduleStop);
         card.addEventListener("focusin", start);
         card.addEventListener("focusout", scheduleStop);
+
+        // Touch: start/stop animation when the card scrolls into/out of view
+        if (isTouchDevice && "IntersectionObserver" in window) {
+            var visIO = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-active");
+                        start();
+                    } else {
+                        entry.target.classList.remove("is-active");
+                        scheduleStop();
+                    }
+                });
+            }, { threshold: 0.35 });
+            visIO.observe(card);
+        }
 
         window.addEventListener("resize", function () {
             dpr = clampDpr();

@@ -64,7 +64,7 @@
         margin-bottom: 1rem;
     }
 
-    /* Full name display on mobile - show everything */
+    /* Wordmark: allow the JS morph to work on mobile too */
     .wordmark {
         font-size: clamp(2.2rem, 11vw, 4rem);
         line-height: 1;
@@ -78,17 +78,12 @@
     }
 
     .wordmark .grow {
-        display: inline;
-        max-width: none;
-        opacity: 1;
-        overflow: visible;
-        transform: none;
+        display: inline-block;
+        will-change: max-width, opacity;
     }
 
     .wordmark .gap {
         display: inline-block;
-        width: auto;
-        overflow: visible;
     }
 
     .hero__sub {
@@ -240,10 +235,6 @@
 
     .feature:active {
         transform: translateY(-2px);
-    }
-
-    .feature > .starfield {
-        display: none;
     }
 
     /* --- Projects grid spacing --- */
@@ -569,11 +560,6 @@
     .nav-links a {
         padding: 0.8em 0;
         min-height: 44px;
-    }
-
-    /* Remove hover-specific effects on touch */
-    .feature:hover > .starfield {
-        opacity: 0 !important;
     }
 
     .reel:hover .reel__poster {

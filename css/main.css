@@ -690,7 +690,8 @@ main {
 }
 
 .feature:hover > .feature__uplight,
-.feature:focus-within > .feature__uplight {
+.feature:focus-within > .feature__uplight,
+.feature.is-active > .feature__uplight {
     opacity: 0.7;
     animation: sheira-flow 3s ease-in-out infinite;
 }

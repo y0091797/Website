@@ -177,7 +177,7 @@
         });
     });
 
-        /* ---------------- Feature Video Autoplay ---------------- */
+    /* ---------------- Feature Video Autoplay ---------------- */
     document.querySelectorAll(".hover-play").forEach(video => {
         const container = video.closest("figure") || video.closest('.feature__media') || video.parentElement;
         if (!container) return;
@@ -185,6 +185,26 @@
         container.addEventListener("mouseenter", () => video.play());
         container.addEventListener("mouseleave", () => video.pause());
     });
+
+    /* Touch: play hover-play videos when scrolled into view */
+    var isTouchDevice = ("ontouchstart" in window) || (navigator.maxTouchPoints > 0);
+    if (isTouchDevice && "IntersectionObserver" in window) {
+        var hpIO = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+                var v = en.target;
+                if (en.isIntersecting) {
+                    v.muted = true;
+                    var p = v.play();
+                    if (p && p.catch) p.catch(function () {});
+                } else {
+                    v.pause();
+                }
+            });
+        }, { threshold: 0.25 });
+        document.querySelectorAll(".hover-play").forEach(function (v) {
+            hpIO.observe(v);
+        });
+    }
 
     /* ---------------- Showreel play ---------------- */
     var reelPlayer = document.getElementById("reelPlayer");
