@@ -3,7 +3,6 @@
    Uses --accent-now (set per page) as the project accent.
    ============================================================= */
 
-/* subpage header is always solid + brand visible */
 .site-header.is-solid {
     background: rgba(10, 22, 34, 0.72);
     backdrop-filter: blur(14px);
@@ -198,7 +197,6 @@
 /* gallery */
 .proj-gallery {
     display: grid;
-    /*grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
     grid-template-columns: repeat(12, 1fr);
     gap: clamp(0.8rem, 1.6vw, 1.4rem);
 }
