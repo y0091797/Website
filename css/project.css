@@ -357,3 +357,93 @@
         grid-column: span 12;
     }
 }
+
+/* =============================================================
+   Lightbox overlay
+   ============================================================= */
+.proj-gallery figure {
+    cursor: pointer;
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s var(--ease-out), visibility 0s 0.4s;
+}
+
+.lightbox.is-active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s var(--ease-out), visibility 0s 0s;
+}
+
+.lightbox__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 22, 34, 0.82);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.lightbox__content {
+    position: relative;
+    max-width: 88vw;
+    max-height: 88vh;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 40px 120px -30px rgba(0, 0, 0, 0.9);
+    transform: scale(0.92);
+    transition: transform 0.4s var(--ease-out);
+}
+
+.lightbox.is-active .lightbox__content {
+    transform: scale(1);
+}
+
+.lightbox__content img,
+.lightbox__content video {
+    display: block;
+    max-width: 88vw;
+    max-height: 88vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radius-lg);
+}
+
+.lightbox__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(10, 22, 34, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--cream);
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+
+.lightbox__close:hover {
+    background: rgba(10, 22, 34, 0.9);
+    transform: scale(1.1);
+}
+
+body.lightbox-open {
+    overflow: hidden;
+}
