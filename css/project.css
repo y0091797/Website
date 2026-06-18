@@ -236,6 +236,11 @@
     display: block;
 }
 
+.proj-gallery img.small,
+.proj-gallery video.small {
+    object-fit: contain;
+}
+
 .proj-gallery figure:hover img,
 .proj-gallery figure:hover video {
     transform: scale(1.05);
