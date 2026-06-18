@@ -372,16 +372,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: clamp(1.5rem, 4vw, 3rem);
-    opacity: 0;
+    /* padding: clamp(1.5rem, 4vw, 3rem); */
+    
     visibility: hidden;
-    transition: opacity 0.4s var(--ease-out), visibility 0s 0.4s;
+    opacity: 0;
+
+    /*transition: opacity 0.4s var(--ease-out);*/
 }
 
 .lightbox.is-active {
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.4s var(--ease-out), visibility 0s 0s;
 }
 
 .lightbox__backdrop {
