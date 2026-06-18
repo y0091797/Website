@@ -248,6 +248,100 @@
     }, 5000);
     }
 
+    /* ---------------- Lightbox ---------------- */
+    var lightbox = null;
+    var lightboxContent = null;
+    var lightboxActive = false;
+
+    function createLightbox() {
+        lightbox = document.createElement("div");
+        lightbox.className = "lightbox";
+        lightbox.setAttribute("role", "dialog");
+        lightbox.setAttribute("aria-modal", "true");
+        lightbox.setAttribute("aria-label", "Media viewer");
+
+        var backdrop = document.createElement("div");
+        backdrop.className = "lightbox__backdrop";
+
+        lightboxContent = document.createElement("div");
+        lightboxContent.className = "lightbox__content";
+
+        var closeBtn = document.createElement("button");
+        closeBtn.className = "lightbox__close";
+        closeBtn.setAttribute("aria-label", "Close viewer");
+        closeBtn.innerHTML = "&#x2715;";
+
+        lightbox.appendChild(backdrop);
+        lightbox.appendChild(lightboxContent);
+        lightbox.appendChild(closeBtn);
+        document.body.appendChild(lightbox);
+
+        backdrop.addEventListener("click", closeLightbox);
+        closeBtn.addEventListener("click", closeLightbox);
+    }
+
+    function openLightbox(mediaEl) {
+        if (!lightbox) createLightbox();
+        lightboxContent.innerHTML = "";
+
+        var clone;
+        if (mediaEl.tagName === "VIDEO") {
+            clone = document.createElement("video");
+            clone.src = mediaEl.currentSrc || mediaEl.src;
+            if (mediaEl.querySelector("source")) {
+                var sources = mediaEl.querySelectorAll("source");
+                for (var i = 0; i < sources.length; i++) {
+                    var s = document.createElement("source");
+                    s.src = sources[i].src;
+                    s.type = sources[i].type;
+                    clone.appendChild(s);
+                }
+            }
+            clone.controls = true;
+            clone.autoplay = true;
+            clone.muted = false;
+            clone.loop = true;
+            clone.playsInline = true;
+        } else {
+            clone = document.createElement("img");
+            clone.src = mediaEl.src;
+            clone.alt = mediaEl.alt || "";
+        }
+
+        lightboxContent.appendChild(clone);
+        document.body.classList.add("lightbox-open");
+        lightbox.classList.add("is-active");
+        lightboxActive = true;
+        if (lenis) lenis.stop();
+    }
+
+    function closeLightbox() {
+        if (!lightboxActive) return;
+        lightbox.classList.remove("is-active");
+        document.body.classList.remove("lightbox-open");
+        lightboxActive = false;
+        if (lenis) lenis.start();
+
+        setTimeout(function () {
+            if (lightboxContent) {
+                var vid = lightboxContent.querySelector("video");
+                if (vid) vid.pause();
+                lightboxContent.innerHTML = "";
+            }
+        }, 400);
+    }
+
+    document.querySelectorAll(".proj-gallery figure").forEach(function (fig) {
+        fig.addEventListener("click", function (e) {
+            var media = fig.querySelector("video") || fig.querySelector("img");
+            if (media) openLightbox(media);
+        });
+    });
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && lightboxActive) closeLightbox();
+    });
+
     /* ---------------- Init ---------------- */
     function init() {
         measure();
