@@ -394,7 +394,6 @@ main {
     overflow: hidden;
     max-width: 0;
     opacity: 0;
-    transform: translateY(0.06em);
     will-change: max-width, opacity;
 }
 
@@ -538,12 +537,7 @@ main {
     will-change: transform;
 }
 
-.reel:hover .reel__play {
-    transform: scale(1.08);
-    background: var(--accent);
-}
-
-.reel__play svg {
+.reel__play img {
     width: 34%;
     height: 34%;
     fill: var(--accent);
@@ -551,8 +545,16 @@ main {
     margin-left: 6%;
 }
 
-.reel:hover .reel__play svg {
-    fill: var(--ink-900);
+.reel:hover .reel__play {
+    transform: scale(1.08);
+    background: var(--accent);
+}
+.reel:hover .reel__overlay {
+    transform: scale(1.08);
+}
+
+.reel:hover .reel__play img {
+    filter:invert(1);
 }
 
 .reel__label {
@@ -584,6 +586,7 @@ main {
     transition: transform 0.6s var(--ease-out), background 0.6s var(--ease-out),
         box-shadow 0.6s var(--ease-out);
     position: relative;
+    isolation: isolate;
 }
 
 .feature:nth-child(even) {
@@ -611,7 +614,8 @@ main {
     aspect-ratio: 4 / 3;
     background: var(--ink-800);
     box-shadow: var(--shadow-soft);
-    contain: paint;
+    /*contain: paint;*/
+
 }
 
 .feature__media::after {
@@ -819,6 +823,31 @@ main {
     padding: 0.4em 0.8em;
     border-radius: 100px;
     font-weight: 600;
+}
+
+.threads {
+    position: absolute;
+    inset: 0;
+    width: 300px;
+    height: auto;
+    top: 0;
+    left: -20%;
+
+    z-index: 5;
+    pointer-events: none;
+
+    mix-blend-mode: screen; /* optional, sehr wichtig für „Lichtfaden“-Look */
+
+    animation: driftThreads 10s ease-in-out infinite alternate;
+}
+
+@keyframes driftThreads {
+    from {
+        transform: translateX(-50px) translateY(-10px);
+    }
+    to {
+        transform: translateX(50px) translateY(10px);
+    }
 }
 
 /* =============================================================
